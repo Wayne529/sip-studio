@@ -5,7 +5,7 @@ export async function exportDrink(drink:SavedDrink):Promise<void>{
   const canvas=document.createElement('canvas');canvas.width=1000;canvas.height=1500;const c=canvas.getContext('2d')!;
   const dark=recipeById[drink.recipeId].family==='cocktail';
   c.fillStyle=dark?'#18231f':'#f9f8f5';c.fillRect(0,0,1000,1500);
-  c.fillStyle=dark?'#eeeae0':'#292824';c.font='28px sans-serif';c.fillText('日咖夜调  /  我的配方',80,100);
+  c.fillStyle=dark?'#eeeae0':'#292824';c.font='28px sans-serif';c.fillText('杯中漫游  /  我的配方',80,100);
   if(drink.image){const image=await createImageBitmap(drink.image);const scale=Math.min(860/image.width,850/image.height);c.drawImage(image,(1000-image.width*scale)/2,135,image.width*scale,image.height*scale);image.close();}
   c.font='50px "Songti SC", serif';c.fillText(drink.name,80,1030,840);
   c.font='21px sans-serif';c.globalAlpha=.7;c.fillText(recipeById[drink.recipeId].en,80,1080);c.globalAlpha=1;

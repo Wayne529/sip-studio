@@ -17,7 +17,7 @@ const modeLabel:Record<Mode,string>={guided:'跟着做',challenge:'经典挑战'
 type Notice=(message:string)=>void;
 
 function SoundButton(){const sound=useAtelier(s=>s.sound);return <button className="icon-button" aria-label={sound?'关闭声音':'开启声音'} onClick={()=>{useAtelier.getState().toggleSound();if(sound)setPourSound(false,false);}}>{sound?<Volume2 size={20}/>:<VolumeX size={20}/>}</button>;}
-function Brand(){return <span className="wordmark">日咖夜调<span className="wordmark-en">DRINK ATELIER</span></span>;}
+function Brand(){return <span className="wordmark">杯中漫游<span className="wordmark-en">SIP STUDIO</span></span>;}
 function BottomNav(){const location=useLocation(),navigate=useNavigate();const collection=['/collection','/saved','/result'].includes(location.pathname);return <nav className="bottom-nav" aria-label="主导航"><button className={!collection?'is-current':''} onClick={()=>navigate('/')}><BookOpen/><span>饮品书</span></button><button onClick={()=>navigate('/workbench')}><Wine/><span>吧台</span></button><button className={collection?'is-current':''} onClick={()=>navigate('/collection')}><Bookmark/><span>我的配方</span></button></nav>;}
 function RecipeArt({recipe,small=false}:{recipe:Recipe;small?:boolean}){
   const thumbnail=recipe.id==='iced-americano'?'thumb-americano':['flat-white','cappuccino','latte'].includes(recipe.id)?'thumb-flatwhite':null;
