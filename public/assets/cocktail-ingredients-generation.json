@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "generator": {
+    "provider": "OpenAI",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in",
+    "transparentBackground": true
+  },
+  "styleReference": "/Users/liuwei/Documents/Codex/2026-11-22/wo-z/outputs/ui-design/日咖夜调-UI设计稿-v3-精致高级.png",
+  "postprocessing": {
+    "png": "None: copied byte-for-byte from built-in generated source.",
+    "webp": {
+      "processor": "sharp",
+      "quality": 88,
+      "alphaQuality": 100,
+      "effort": 5,
+      "resize": false,
+      "trim": false,
+      "contentEditing": false
+    }
+  },
+  "coordinateNotes": "Visible bbox uses alpha>128, excluding extremely faint alpha fringe pixels. Full square canvas retained in PNG and WebP.",
+  "assets": [
+    {
+      "filename": "ingredient-tequila.png",
+      "path": "public/assets/ingredient-tequila.png",
+      "webpPath": "public/assets/ingredient-tequila.webp",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-fe5f9dfa-84f0-4d21-a758-56bb80227159.png",
+      "preservedSource": "work/drink-assets/originals/exec-fe5f9dfa-84f0-4d21-a758-56bb80227159.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: independent transparent PNG ingredient bottle for a premium realistic mobile craft coffee and cocktail app ingredient shelf.\nStyle/medium: exquisite realistic editorial product photography / physically based 3D, fine clear glass optics and believable natural liquid colors, sophisticated quiet premium visual.\nLighting/mood: broad soft warm-neutral studio key from upper left, subtle neutral right rim, fine restrained glass highlights, sharp clean silhouette, same lighting as a fine clear milk jug and orange juice pitcher.\nComposition/framing: square canvas, ONE entire upright small bottle exactly centered, full cork top and full base visible, approximately 75% canvas height and 40% width with generous clear margins all sides. Slightly elevated frontal product camera, 85mm lens, no wide-angle distortion, bottle perfectly upright and not tilted.\nScene/backdrop: genuine transparent alpha background; no tabletop, floor, ground, contact shadow, cast shadow, backdrop, horizon or surrounding objects.\nPrimary request: one beautiful small transparent clear glass tequila bottle, completely UNLABELED. A premium miniature spirit flask with a neat short straight neck, elegant gently squared shoulders and subtly rounded flat-front body, thin clear glass base, topped with a small natural tan wooden cork stopper. Bottle contains pale golden straw-colored clear tequila filling roughly three-quarters of the body, optically transparent liquid, not opaque amber, no sediment. Simple refined unpatterned glass, delicate refraction and slim white highlights, visible level spirit surface.\nConstraints: only one upright clear tequila bottle with stopper and pale gold clear spirit. No label of any kind, no branding, no embossed text, no markings, no decorative bands, no agave plants, no shot glass, no limes, no salt, no pour, no second bottle, no hands, no background or shadow, no UI, no cartoon. Actual transparency outside the entire bottle and stopper.",
+      "inspection": {
+        "path": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-fe5f9dfa-84f0-4d21-a758-56bb80227159.png",
+        "width": 1254,
+        "height": 1254,
+        "color": "RGBA8",
+        "alphaBBox": [
+          0,
+          23,
+          1234,
+          1254
+        ],
+        "solidBBox": [
+          346,
+          63,
+          893,
+          1193
+        ],
+        "transparentFraction": 0.6747,
+        "semiTransparentFraction": 0.325,
+        "alphaSamples": {
+          "0.5,0.5": 253,
+          "0.4,0.5": 253,
+          "0.6,0.5": 253,
+          "0.5,0.3": 253,
+          "0.5,0.7": 253
+        },
+        "visibleBBoxNormalized": [
+          0.27592,
+          0.05024,
+          0.71212,
+          0.95136
+        ]
+      },
+      "savedFiles": {
+        "pngBytes": 883430,
+        "webpBytes": 101162,
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "pngMatchesSource": true,
+        "webpAlphaMatchesPng": true
+      }
+    },
+    {
+      "filename": "ingredient-grenadine.png",
+      "path": "public/assets/ingredient-grenadine.png",
+      "webpPath": "public/assets/ingredient-grenadine.webp",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-3c5aafe9-7cd2-432d-b228-725912116902.png",
+      "preservedSource": "work/drink-assets/originals/exec-3c5aafe9-7cd2-432d-b228-725912116902.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: independent transparent PNG ingredient bottle for a premium realistic mobile craft coffee and cocktail app ingredient shelf.\nStyle/medium: exquisite realistic editorial product photography / physically based 3D, fine clear glass optics and believable natural liquid colors, sophisticated quiet premium visual.\nLighting/mood: broad soft warm-neutral studio key from upper left, subtle neutral right rim, fine restrained glass highlights, sharp clean silhouette, same lighting as a fine clear milk jug and orange juice pitcher.\nComposition/framing: square canvas, ONE entire upright small bottle exactly centered, full cork top and full base visible, approximately 75% canvas height and 40% width with generous clear margins all sides. Slightly elevated frontal product camera, 85mm lens, no wide-angle distortion, bottle perfectly upright and not tilted.\nScene/backdrop: genuine transparent alpha background; no tabletop, floor, ground, contact shadow, cast shadow, backdrop, horizon or surrounding objects.\nPrimary request: one beautiful small transparent clear glass pomegranate grenadine syrup bottle, completely UNLABELED. A premium miniature syrup flask with a neat short slender straight neck, elegant gently squared shoulders and subtly rounded flat-front body, thin clear glass base, topped with a small natural tan cork stopper and plain narrow glass collar. Bottle contains rich dark ruby-red pomegranate syrup filling roughly three-quarters of the body, strong deep red liquid with beautiful crimson translucent edge glow and believable optical density, visible level syrup surface. Simple refined unpatterned glass, fine delicate refraction and slim white specular highlights.\nConstraints: only one upright clear grenadine syrup bottle with stopper and dark red syrup. No label of any kind, no branding, no embossed text, no markings, no decorative bands, no pomegranates or fruit, no cocktail glass, no pour, no second bottle, no hands, no background or shadow, no UI, no cartoon. Actual transparency outside the entire bottle and stopper.",
+      "inspection": {
+        "path": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-3c5aafe9-7cd2-432d-b228-725912116902.png",
+        "width": 1254,
+        "height": 1254,
+        "color": "RGBA8",
+        "alphaBBox": [
+          0,
+          19,
+          1232,
+          1254
+        ],
+        "solidBBox": [
+          390,
+          81,
+          859,
+          1175
+        ],
+        "transparentFraction": 0.7363,
+        "semiTransparentFraction": 0.2634,
+        "alphaSamples": {
+          "0.5,0.5": 252,
+          "0.4,0.5": 253,
+          "0.6,0.5": 253,
+          "0.5,0.3": 253,
+          "0.5,0.7": 252
+        },
+        "visibleBBoxNormalized": [
+          0.311,
+          0.06459,
+          0.68501,
+          0.937
+        ]
+      },
+      "savedFiles": {
+        "pngBytes": 672729,
+        "webpBytes": 83308,
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true,
+        "pngMatchesSource": true,
+        "webpAlphaMatchesPng": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "generator": {
+    "provider": "OpenAI",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in",
+    "transparentBackground": true
+  },
+  "styleReference": "/Users/liuwei/Documents/Codex/2026-11-22/wo-z/outputs/ui-design/日咖夜调-UI设计稿-v3-精致高级.png",
+  "postprocessing": {
+    "png": "None: copied byte-for-byte from built-in generated source.",
+    "webp": {
+      "processor": "sharp",
+      "quality": 88,
+      "alphaQuality": 100,
+      "effort": 5,
+      "resize": false,
+      "trim": false,
+      "contentEditing": false
+    }
+  },
+  "coordinateNotes": "Visible bbox uses alpha>128, excluding extremely faint alpha fringe pixels. Full square canvas retained in PNG and WebP.",
+  "assets": [
+    {
+      "filename": "thumb-americano.png",
+      "path": "public/assets/thumb-americano.png",
+      "webpPath": "public/assets/thumb-americano.webp",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-e81a9ef3-3fa5-4cba-a28b-a7620c686561.png",
+      "preservedSource": "work/drink-assets/originals/exec-e81a9ef3-3fa5-4cba-a28b-a7620c686561.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: independent transparent PNG beverage thumbnail for a premium craft coffee mobile app.\nStyle/medium: exquisite realistic editorial product photography / physically based 3D, sophisticated quiet premium visual, matching fine glass drink product shots.\nLighting/mood: broad soft warm-neutral studio key light from upper left, subtle neutral right rim, fine restrained highlights, natural delicious coffee colors, crisp clean silhouette.\nComposition/framing: square canvas, one complete drink exactly centered with generous transparent margins on all sides, full rim, base and all details visible, no cropping. Slightly elevated frontal product camera, 85mm lens without distortion.\nScene/backdrop: genuine transparent alpha background; no tabletop, floor, saucer, coaster, ground, contact shadow, backdrop, horizon or surrounding objects.\nPrimary request: one beautiful authentic iced Americano in a thin clear short straight-sided tumbler. Deep natural dark brown yet transparent black coffee with subtle warm amber translucency at edges and several large exquisitely clear irregular ice cubes visible at and slightly above the drink surface. No milk. Fine clear glass rim, restrained thin glass base, a few very small delicate condensation droplets.\nFraming detail: complete short glass approximately 72% canvas height and 62% canvas width. The top is a narrow elegant ellipse, with clear facets of the ice catching soft light. Near-parallel unpatterned glass walls.\nConstraints: only one completed iced black coffee. No milk, no cream, no latte layers, no caramel syrup, no garnish, no straw, no beans, no steam, no pouring stream, no text, no labels, no logos, no UI, no cartoon. Actual transparency outside the drink.",
+      "inspection": {
+        "path": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-e81a9ef3-3fa5-4cba-a28b-a7620c686561.png",
+        "width": 1254,
+        "height": 1254,
+        "color": "RGBA8",
+        "alphaBBox": [
+          0,
+          9,
+          1240,
+          1254
+        ],
+        "solidBBox": [
+          251,
+          110,
+          1002,
+          1164
+        ],
+        "transparentFraction": 0.5426,
+        "semiTransparentFraction": 0.457,
+        "alphaSamples": {
+          "0.5,0.5": 253,
+          "0.4,0.5": 253,
+          "0.6,0.5": 253,
+          "0.5,0.3": 253,
+          "0.5,0.7": 253
+        },
+        "visibleBBoxNormalized": [
+          0.20016,
+          0.08772,
+          0.79904,
+          0.92823
+        ]
+      },
+      "savedFiles": {
+        "pngBytes": 1515123,
+        "webpBytes": 215038,
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true
+      }
+    },
+    {
+      "filename": "thumb-flatwhite.png",
+      "path": "public/assets/thumb-flatwhite.png",
+      "webpPath": "public/assets/thumb-flatwhite.webp",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-76b2db39-65de-4928-9bae-29681394e77b.png",
+      "preservedSource": "work/drink-assets/originals/exec-76b2db39-65de-4928-9bae-29681394e77b.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: independent transparent PNG beverage thumbnail for a premium craft coffee mobile app.\nStyle/medium: exquisite realistic editorial product photography / physically based 3D, sophisticated quiet premium visual, matching fine glass drink product shots.\nLighting/mood: broad soft warm-neutral studio key light from upper left, subtle neutral right rim, fine restrained highlights, natural delicious coffee colors, crisp clean silhouette.\nComposition/framing: square canvas, one complete drink exactly centered with generous transparent margins on all sides, full rim, base and all details visible, no cropping. Slightly elevated frontal product camera, 85mm lens without distortion.\nScene/backdrop: genuine transparent alpha background; no tabletop, floor, saucer, coaster, ground, contact shadow, backdrop, horizon or surrounding objects.\nPrimary request: one beautiful authentic flat white coffee in a refined pale warm cream-colored ceramic cup. A low rounded elegant porcelain coffee cup with a single small delicate loop handle on the right, subtle ceramic glaze, filled with smooth silky white microfoam bordered by natural warm caramel espresso. Exquisite fine white rosetta latte art neatly centered on the coffee surface, realistic small barista-made pattern with delicate feathered leaves and fine natural cream linework. Thin elegant cup lip; coffee surface clean and silky, no huge bubbles.\nFraming detail: full ceramic cup and full handle visible, approximately 70% canvas width and 58% canvas height, cup centered with generous transparent margins. Slightly elevated frontal view so latte art is clearly visible yet cup is not top-down. Sophisticated realistic three-dimensional ceramic texture, calm creamy color.\nConstraints: exactly one completed flat white ceramic cup. No saucer, no plate, no spoon, no coaster, no ground or shadow, no hands, no beans, no napkin, no cocoa powder, no steam, no second cup, no text, no logo, no label, no UI, no cartoon. Genuine alpha transparency outside the whole cup and handle.",
+      "inspection": {
+        "path": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-76b2db39-65de-4928-9bae-29681394e77b.png",
+        "width": 1254,
+        "height": 1254,
+        "color": "RGBA8",
+        "alphaBBox": [
+          0,
+          36,
+          1240,
+          1254
+        ],
+        "solidBBox": [
+          115,
+          302,
+          1182,
+          1042
+        ],
+        "transparentFraction": 0.6417,
+        "semiTransparentFraction": 0.3577,
+        "alphaSamples": {
+          "0.5,0.5": 253,
+          "0.4,0.5": 253,
+          "0.6,0.5": 253,
+          "0.5,0.3": 253,
+          "0.5,0.7": 253
+        },
+        "visibleBBoxNormalized": [
+          0.09171,
+          0.24083,
+          0.94258,
+          0.83094
+        ]
+      },
+      "savedFiles": {
+        "pngBytes": 1100661,
+        "webpBytes": 122114,
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true
+      }
+    }
+  ]
+}

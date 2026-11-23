@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "generator": {
+    "provider": "OpenAI",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in",
+    "transparentBackground": true
+  },
+  "filename": "coffee-cloud-overlay.png",
+  "path": "public/assets/coffee-cloud-overlay.png",
+  "webpPath": "public/assets/coffee-cloud-overlay.webp",
+  "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-1b30655d-8520-416a-aa1f-b907a76e7ab7.png",
+  "preservedSource": "work/drink-assets/originals/exec-1b30655d-8520-416a-aa1f-b907a76e7ab7.png",
+  "generationPrompt": "Use case: product-mockup\nAsset type: true-alpha isolated coffee pigment flow overlay PNG for layering over animated ivory milk in a realistic drink mixing interface.\nPrimary request: ONLY an exquisite flowing network of caramel-brown and deep espresso-brown liquid tendrils and feathered curling diffusion wisps, isolated on an ACTUALLY TRANSPARENT background. Imagine macro high-speed photography of espresso slowly curling and diffusing downward through milk, but remove the milk completely: only the delicate semi-transparent brown coffee pigment filaments should remain. This must be a coffee fluid concentration layer, not a finished drink scene.\nComposition/framing: square canvas. A narrow dark espresso entry point at the upper center near normalized (.5,.09) descends a short distance then spreads broadly into a rich elegant vertical plume of many fine long feather-like curling streams. Overall visible brown wisps span about 74% canvas width and 82% height, entirely inside frame with clear margins. Dozens of slender graceful cascading curls, branching lace-like filaments, and flowing downward streaks form an airy broad vertical coffee cloud. Several larger smooth S-curves separate and unfurl into very fine tendrils at the sides and bottom. Small open translucent spaces remain between every fluid structure, with visual movement downward and outward. Upper plume is darker; lower wisps become lighter warm caramel and more transparent.\nStyle/medium: photorealistic scientific macro fluid photography with exquisite natural liquid diffusion detail, physically believable smooth delicate flow, refined quiet editorial quality. Soft warm-neutral lighting. Colors restricted to authentic natural caramel coffee browns and deep espresso browns only.\nMaterials/transparency: genuine graded alpha within the brown wisps, smoothly varying mostly between low and medium opacity, extremely fine softly fading translucent edges, large clear alpha gaps between wisps. Underlying ivory milk rendered by the app must show beautifully through. No opaque broad body or filled white carrier layer.\nConstraints: pure brown pigment flow only. NO cup, glass, container, ice, tool, bottle, pitcher, pouring vessel, text, UI, props, surface, liquid surface ellipse or splash. NO milk color, ivory color, white pixels as a backing layer, solid black or solid white background, checkerboard or colored background, rectangle or opaque matte. No chunky rounded blobs, dense puff-ball clouds, solid brown mass, cartoon smoke, steam, fire, vapor, neon, gold sparkles or thick outlines. Preserve the entire thin plume and all delicate tendrils on a real transparent background.",
+  "postprocessing": {
+    "png": "None: copied byte-for-byte from built-in generated source.",
+    "webp": {
+      "processor": "sharp",
+      "quality": 88,
+      "alphaQuality": 100,
+      "effort": 5,
+      "resize": false,
+      "trim": false,
+      "contentEditing": false
+    }
+  },
+  "inspection": {
+    "path": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-1b30655d-8520-416a-aa1f-b907a76e7ab7.png",
+    "width": 1254,
+    "height": 1254,
+    "color": "RGBA8",
+    "alphaBBox": [
+      0,
+      9,
+      1254,
+      1254
+    ],
+    "solidBBox": [
+      201,
+      76,
+      1019,
+      1091
+    ],
+    "transparentFraction": 0.6106,
+    "semiTransparentFraction": 0.3894,
+    "alphaSamples": {
+      "0.5,0.5": 203,
+      "0.4,0.5": 69,
+      "0.6,0.5": 180,
+      "0.5,0.3": 247,
+      "0.5,0.7": 147
+    }
+  },
+  "composition": {
+    "inletNormalized": [
+      0.5,
+      0.045
+    ],
+    "visibleBBoxAlphaOver128": [
+      201,
+      76,
+      1019,
+      1091
+    ],
+    "visibleBBoxNormalized": [
+      0.16029,
+      0.06061,
+      0.8126,
+      0.87002
+    ],
+    "notes": "Coffee filaments include graded transparency; sampled interior alpha varies from 69 to 247. Composite over the milk layer, within the cup liquid mask. No glass, ice, tool or backing rectangle."
+  },
+  "savedFiles": {
+    "pngBytes": 1370526,
+    "webpBytes": 414048,
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "pngMatchesSource": true,
+    "webpAlphaMatchesPng": true
+  }
+}

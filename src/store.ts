@@ -34,7 +34,7 @@ export const useAtelier=create<AtelierStore>((set,get)=>({
   setIngredient:selectedIngredient=>set({selectedIngredient}),
   toggleSound:()=>set(s=>{localStorage.setItem('atelier-sound',String(!s.sound));return{sound:!s.sound};}),
   setQuality:quality=>set({quality}),setReducedMotion:reducedMotion=>set({reducedMotion}),
-  restore:session=>set({session,selectedRecipe:session.recipeId,family:recipeById[session.recipeId].family,history:[]}),
+  restore:session=>set({session,selectedRecipe:session.recipeId,family:recipeById[session.recipeId].family,selectedIngredient:session.additions.at(-1)?.id??'ice',history:[]}),
 }));
 
 let persistTimer:ReturnType<typeof setTimeout>;

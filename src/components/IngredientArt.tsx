@@ -3,6 +3,8 @@ import type { Ingredient } from '../domain/catalog';
 
 export function IngredientArt({ingredient:i}:{ingredient:Ingredient}){
   const uid=useId().replaceAll(':','');
+  const photo=({milk:'ingredient-milk',oat:'ingredient-milk',coconut:'ingredient-milk',espresso:'ingredient-espresso',orange:'ingredient-juice',pineapple:'ingredient-juice',ice:'ice-cube',tequila:'ingredient-tequila',grenadine:'ingredient-grenadine'} as Record<string,string>)[i.id];
+  if(photo)return <img className="photo-ingredient" src={`/assets/${photo}.webp`} alt=""/>;
   return <svg className="ingredient-art" viewBox="0 0 70 76" aria-hidden="true">
     <defs><linearGradient id={uid} x1="0" y1="0" x2="1" y2=".2"><stop stopColor="#fff" stopOpacity=".75"/><stop offset=".35" stopColor={i.color} stopOpacity=".4"/><stop offset="1" stopColor={i.color} stopOpacity=".9"/></linearGradient><linearGradient id={uid+'g'} x1="0" x2="1"><stop stopColor="#e5eeeb" stopOpacity=".25"/><stop offset=".3" stopColor="#fff" stopOpacity=".7"/><stop offset=".8" stopColor="#d5e1dc" stopOpacity=".15"/><stop offset="1" stopColor="#fff" stopOpacity=".8"/></linearGradient></defs>
     {i.icon==='ice'?<g stroke="#aebebd" strokeWidth="1.1" fill={'url(#'+uid+'g)'}><path d="m10 35 19-6 13 10-3 23-21 3-10-11z"/><path d="m33 18 17-6 12 11-2 21-20 3-10-10z"/><path d="m33 46 19-4 10 9-2 17-20 2-9-9z"/><path d="m10 35 12 10 20-6M22 45l-4 20m15-47 11 9 18-4M44 27l-4 20m-7-1 10 9 19-4m-19 4-3 15" fill="none" strokeOpacity=".7"/></g>:

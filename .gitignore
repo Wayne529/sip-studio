@@ -5,3 +5,5 @@ dist/
 .openai/local/
 coverage/
 *.tsbuildinfo
+
+work/

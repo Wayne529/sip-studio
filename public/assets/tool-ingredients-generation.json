@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "generator": {
+    "provider": "OpenAI",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in",
+    "transparentBackground": true
+  },
+  "styleReference": "/Users/liuwei/Documents/Codex/2026-11-22/wo-z/outputs/ui-design/日咖夜调-UI设计稿-v3-精致高级.png",
+  "postprocessing": {
+    "png": "None: copied byte-for-byte from built-in generated source.",
+    "webp": {
+      "processor": "sharp",
+      "quality": 88,
+      "alphaQuality": 100,
+      "effort": 5,
+      "resize": false,
+      "trim": false,
+      "contentEditing": false
+    }
+  },
+  "coordinateNotes": "All suggested anchors use full untrimmed image coordinates normalized to [0,1]. Visible bbox uses alpha>128, excluding extremely faint alpha fringe pixels. Visual anchors are suggested starting points.",
+  "assets": [
+    {
+      "filename": "pour-pitcher.png",
+      "path": "public/assets/pour-pitcher.png",
+      "webpPath": "public/assets/pour-pitcher.webp",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-2e2518c3-2885-4085-8fd5-4b4057ade63c.png",
+      "preservedSource": "work/drink-assets/originals/exec-2e2518c3-2885-4085-8fd5-4b4057ade63c.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: independent transparent PNG asset for a premium mobile craft coffee and cocktail mixing interface, matching refined realistic editorial beverage imagery.\nStyle/medium: exquisitely realistic product photography / physically based 3D, detailed fine clear glass optics, natural quiet premium visual, never cartoon or icon illustration.\nLighting/mood: broad soft warm-neutral studio light from upper left, subtle neutral right-side rim, fine restrained highlights, believable natural ingredient colors; sharp clean silhouette.\nScene/backdrop: genuinely transparent alpha background, no tabletop, floor, coaster, horizon, environment, background, checkerboard, shadow or surrounding objects.\nPrimary request: ONE transparent thin clear glass espresso pouring pitcher containing dark rich espresso coffee, shown already tilted diagonally for pouring. A beautiful small open-top glass coffee server with a pointed pouring spout and transparent curved loop handle. No markings or labels.\nComposition/framing: square canvas, full object entirely visible including handle and spout, centered, approximately 78% canvas width and 62% height with generous clear margins. Tilt the whole pitcher so the pointed spout is at the LOWER LEFT, around normalized x=.17 y=.67, aiming down-left; the rounded body is in the upper-right middle; the handle is at the UPPER RIGHT around x=.79 y=.3. A strong diagonal from upper right to lower left, with roughly 35-degree pouring tilt. Slightly elevated frontal product view, see espresso within the transparent glass and the elliptical pitcher opening. Realistic gravity: the espresso's liquid surface is level, not tilted with the glass. Espresso is rich naturally dark brown with subtle warm caramel edge translucency.\nConstraints: complete tilted glass pitcher only, with espresso inside. NO flowing or falling liquid, no droplets or splash outside, no cup or receiver, no hands, no text, no label, no measurement marks, no logo, no UI. The spout must be unmistakable and face lower left, and the handle must be fully visible on upper right.",
+      "inspection": {
+        "path": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-2e2518c3-2885-4085-8fd5-4b4057ade63c.png",
+        "width": 1254,
+        "height": 1254,
+        "color": "RGBA8",
+        "alphaBBox": [
+          0,
+          18,
+          1230,
+          1254
+        ],
+        "solidBBox": [
+          74,
+          166,
+          1201,
+          1088
+        ],
+        "transparentFraction": 0.6145,
+        "semiTransparentFraction": 0.3852,
+        "alphaSamples": {
+          "0.5,0.5": 253,
+          "0.4,0.5": 252,
+          "0.6,0.5": 252,
+          "0.5,0.3": 252,
+          "0.5,0.7": 253
+        },
+        "visibleBBoxNormalized": [
+          0.05901,
+          0.13238,
+          0.95774,
+          0.86762
+        ]
+      },
+      "suggestedAnchors": {
+        "pourSpoutNormalized": [
+          0.064,
+          0.676
+        ],
+        "notes": "Use the pointed lower-left spout tip as the stream origin. Pitcher is already tilted; avoid adding another large rotation."
+      },
+      "savedFiles": {
+        "pngBytes": 1236057,
+        "webpBytes": 178236,
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true
+      }
+    },
+    {
+      "filename": "pour-bottle.png",
+      "path": "public/assets/pour-bottle.png",
+      "webpPath": "public/assets/pour-bottle.webp",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-975010be-0116-4631-8574-db91cfc90980.png",
+      "preservedSource": "work/drink-assets/originals/exec-975010be-0116-4631-8574-db91cfc90980.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: independent transparent PNG asset for a premium mobile craft coffee and cocktail mixing interface, matching refined realistic editorial beverage imagery.\nStyle/medium: exquisitely realistic product photography / physically based 3D, detailed fine clear glass optics, natural quiet premium visual, never cartoon or icon illustration.\nLighting/mood: broad soft warm-neutral studio light from upper left, subtle neutral right-side rim, fine restrained highlights, believable natural ingredient colors; sharp clean silhouette.\nScene/backdrop: genuinely transparent alpha background, no tabletop, floor, coaster, horizon, environment, background, checkerboard, shadow or surrounding objects.\nPrimary request: ONE clear glass long-neck cocktail syrup bottle partially filled with rich translucent ruby-red pomegranate grenadine syrup, already tilted diagonally from upper right to lower left. No label, no cap, no measurement marks. Elegant realistic glass bottle, modest rounded shoulders and slender long straight neck, clear visible open mouth.\nComposition/framing: square canvas, entire bottle and open mouth visible, centered, approximately 80% canvas width and 62% height with generous clear margins. Bottle bottom/body is on the UPPER RIGHT around normalized x=.76 y=.3, narrow neck extends diagonally toward LOWER LEFT, OPEN BOTTLE MOUTH around normalized x=.15 y=.69 and pointing down-left, a clear roughly 35-degree diagonal pouring orientation. Slightly elevated frontal view, realistic gravity with level syrup surface visible through clear glass and ruby translucency at syrup edges.\nConstraints: complete tilted bottle only with syrup inside. NO flowing or falling liquid, no droplets or splash outside, no cup or receiver, no hands, no text, no label, no brand, no logo, no cork or cap, no UI. Open bottle mouth must point lower left.",
+      "inspection": {
+        "path": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-975010be-0116-4631-8574-db91cfc90980.png",
+        "width": 1254,
+        "height": 1254,
+        "color": "RGBA8",
+        "alphaBBox": [
+          0,
+          33,
+          1240,
+          1254
+        ],
+        "solidBBox": [
+          137,
+          251,
+          1199,
+          1002
+        ],
+        "transparentFraction": 0.8002,
+        "semiTransparentFraction": 0.1997,
+        "alphaSamples": {
+          "0.5,0.5": 252,
+          "0.4,0.5": 253,
+          "0.6,0.5": 253,
+          "0.5,0.3": 0,
+          "0.5,0.7": 0
+        },
+        "visibleBBoxNormalized": [
+          0.10925,
+          0.20016,
+          0.95614,
+          0.79904
+        ]
+      },
+      "suggestedAnchors": {
+        "bottleMouthCenterNormalized": [
+          0.151,
+          0.745
+        ],
+        "lowerLipStreamOriginNormalized": [
+          0.135,
+          0.765
+        ],
+        "notes": "Bottle already points down-left; mouth center and lower lip are visual estimates to tune while compositing."
+      },
+      "savedFiles": {
+        "pngBytes": 634800,
+        "webpBytes": 91978,
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true
+      }
+    },
+    {
+      "filename": "orange-wheel.png",
+      "path": "public/assets/orange-wheel.png",
+      "webpPath": "public/assets/orange-wheel.webp",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-fc1d6834-e18d-4636-bcc4-c5a4ab53c340.png",
+      "preservedSource": "work/drink-assets/originals/exec-fc1d6834-e18d-4636-bcc4-c5a4ab53c340.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: independent transparent PNG asset for a premium mobile craft coffee and cocktail mixing interface, matching refined realistic editorial beverage imagery.\nStyle/medium: exquisitely realistic product photography / physically based 3D, detailed fine clear glass optics, natural quiet premium visual, never cartoon or icon illustration.\nLighting/mood: broad soft warm-neutral studio light from upper left, subtle neutral right-side rim, fine restrained highlights, believable natural ingredient colors; sharp clean silhouette.\nScene/backdrop: genuinely transparent alpha background, no tabletop, floor, coaster, horizon, environment, background, checkerboard, shadow or surrounding objects.\nPrimary request: ONE exquisite fresh thin semicircular orange slice / half wheel, suitable as a highball rim garnish. Beautiful realistic natural bright orange rind, thin pale pith, glossy finely detailed translucent juicy orange radial citrus segments. It is a flat thin half-circle cut from one orange cross-section, not a 3D orange wedge. One tiny discreet garnish slit at the midpoint of the straight cut edge for clipping to a glass rim.\nComposition/framing: square canvas, full standalone half-wheel centered, curved rind arc across the top and straight cut edge across bottom, slight 12-degree three-quarter turn revealing only a very thin slice edge, approximately 72% canvas width and 48% height, generous transparent margin all sides. Fine clean natural outline and realistic citrus membrane detail.\nConstraints: exactly one thin semicircular orange half-slice only. No full orange, no second slice, no leaves, no glass, no toothpick, no cup, no label, no text, no hand, no surface, no shadow, no UI. Actual transparency outside the slice.",
+      "inspection": {
+        "path": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-fc1d6834-e18d-4636-bcc4-c5a4ab53c340.png",
+        "width": 1254,
+        "height": 1254,
+        "color": "RGBA8",
+        "alphaBBox": [
+          0,
+          9,
+          1234,
+          1254
+        ],
+        "solidBBox": [
+          61,
+          350,
+          1186,
+          944
+        ],
+        "transparentFraction": 0.6377,
+        "semiTransparentFraction": 0.3622,
+        "alphaSamples": {
+          "0.5,0.5": 253,
+          "0.4,0.5": 253,
+          "0.6,0.5": 252,
+          "0.5,0.3": 253,
+          "0.5,0.7": 246
+        },
+        "visibleBBoxNormalized": [
+          0.04864,
+          0.27911,
+          0.94577,
+          0.75279
+        ]
+      },
+      "suggestedAnchors": {
+        "garnishClipNotchNormalized": [
+          0.499,
+          0.731
+        ],
+        "notes": "Small slit at center of lower straight edge; suitable as the pivot for hanging the garnish on a cup rim."
+      },
+      "savedFiles": {
+        "pngBytes": 1151432,
+        "webpBytes": 227516,
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true
+      }
+    },
+    {
+      "filename": "ingredient-milk.png",
+      "path": "public/assets/ingredient-milk.png",
+      "webpPath": "public/assets/ingredient-milk.webp",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-e4a9421c-05be-4e16-8e41-6f9340072f87.png",
+      "preservedSource": "work/drink-assets/originals/exec-e4a9421c-05be-4e16-8e41-6f9340072f87.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: independent transparent PNG asset for a premium mobile craft coffee and cocktail mixing interface, matching refined realistic editorial beverage imagery.\nStyle/medium: exquisitely realistic product photography / physically based 3D, detailed fine clear glass optics, natural quiet premium visual, never cartoon or icon illustration.\nLighting/mood: broad soft warm-neutral studio light from upper left, subtle neutral right-side rim, fine restrained highlights, believable natural ingredient colors; sharp clean silhouette.\nScene/backdrop: genuinely transparent alpha background, no tabletop, floor, coaster, horizon, environment, background, checkerboard, shadow or surrounding objects.\nPrimary request: ONE small refined transparent clear glass milk pitcher filled about three-quarters with natural creamy ivory-white milk. A little rounded glass jug with slim elegant pointed pouring spout on left and a small clear curved loop handle on right. Entire milk jug upright. The milk surface is smooth and level, no foamy overflow.\nComposition/framing: square canvas, full upright jug centered, approximately 69% canvas height and 65% width, entire spout, handle, rim and base visible with generous transparent margins. Slightly elevated frontal product view, 85mm lens, gentle narrow ellipse at the top, sophisticated near-photographic material detail.\nConstraints: only one milk pitcher with milk inside, no pouring, no second object, no cup, no labels, no measurement marks, no text, no logo, no UI, no shadow, no background.",
+      "inspection": {
+        "path": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-e4a9421c-05be-4e16-8e41-6f9340072f87.png",
+        "width": 1254,
+        "height": 1254,
+        "color": "RGBA8",
+        "alphaBBox": [
+          0,
+          31,
+          1236,
+          1188
+        ],
+        "solidBBox": [
+          219,
+          166,
+          1085,
+          1100
+        ],
+        "transparentFraction": 0.6209,
+        "semiTransparentFraction": 0.3789,
+        "alphaSamples": {
+          "0.5,0.5": 253,
+          "0.4,0.5": 252,
+          "0.6,0.5": 253,
+          "0.5,0.3": 253,
+          "0.5,0.7": 253
+        },
+        "visibleBBoxNormalized": [
+          0.17464,
+          0.13238,
+          0.86523,
+          0.87719
+        ]
+      },
+      "suggestedAnchors": {
+        "pourSpoutNormalized": [
+          0.177,
+          0.207
+        ]
+      },
+      "savedFiles": {
+        "pngBytes": 946918,
+        "webpBytes": 102462,
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true
+      }
+    },
+    {
+      "filename": "ingredient-espresso.png",
+      "path": "public/assets/ingredient-espresso.png",
+      "webpPath": "public/assets/ingredient-espresso.webp",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-39c76e51-12d0-452f-a4ce-e5746798f2a2.png",
+      "preservedSource": "work/drink-assets/originals/exec-39c76e51-12d0-452f-a4ce-e5746798f2a2.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: independent transparent PNG asset for a premium mobile craft coffee and cocktail mixing interface, matching refined realistic editorial beverage imagery.\nStyle/medium: exquisitely realistic product photography / physically based 3D, detailed fine clear glass optics, natural quiet premium visual, never cartoon or icon illustration.\nLighting/mood: broad soft warm-neutral studio light from upper left, subtle neutral right-side rim, fine restrained highlights, believable natural ingredient colors; sharp clean silhouette.\nScene/backdrop: genuinely transparent alpha background, no tabletop, floor, coaster, horizon, environment, background, checkerboard, shadow or surrounding objects.\nPrimary request: ONE small thin clear straight-sided espresso shot glass containing a rich dark-brown espresso topped with a smooth delicious thin golden caramel crema layer. A refined transparent handleless miniature coffee glass, approximately 40ml. Espresso liquid fills roughly two-thirds of the glass, realistic crema with very fine natural microbubbles around edges, color from warm golden crema to deep natural coffee brown and subtly translucent amber at the base.\nComposition/framing: square canvas, entire upright small espresso glass centered, approximately 65% canvas height and 60% width with generous transparent margins. Short straight glass sides, delicate clear rim and modest glass base, no ribs or patterns. Slightly elevated frontal product view, 85mm lens, see crema as a narrow ellipse, sharp clean complete edges.\nConstraints: one transparent espresso glass with espresso only, no handle, no plate or saucer, no beans, no steam, no pouring, no other objects, no labels, no text, no logo, no UI, no shadow or background.",
+      "inspection": {
+        "path": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-39c76e51-12d0-452f-a4ce-e5746798f2a2.png",
+        "width": 1254,
+        "height": 1254,
+        "color": "RGBA8",
+        "alphaBBox": [
+          0,
+          0,
+          1244,
+          1254
+        ],
+        "solidBBox": [
+          235,
+          191,
+          1009,
+          1118
+        ],
+        "transparentFraction": 0.5906,
+        "semiTransparentFraction": 0.4092,
+        "alphaSamples": {
+          "0.5,0.5": 252,
+          "0.4,0.5": 252,
+          "0.6,0.5": 252,
+          "0.5,0.3": 172,
+          "0.5,0.7": 253
+        },
+        "visibleBBoxNormalized": [
+          0.1874,
+          0.15231,
+          0.80463,
+          0.89155
+        ]
+      },
+      "suggestedAnchors": {},
+      "savedFiles": {
+        "pngBytes": 1117352,
+        "webpBytes": 178042,
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true
+      }
+    },
+    {
+      "filename": "ingredient-juice.png",
+      "path": "public/assets/ingredient-juice.png",
+      "webpPath": "public/assets/ingredient-juice.webp",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-75ef4869-9504-4e1c-8e5b-40ea8d656822.png",
+      "preservedSource": "work/drink-assets/originals/exec-75ef4869-9504-4e1c-8e5b-40ea8d656822.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: independent transparent PNG asset for a premium mobile craft coffee and cocktail mixing interface, matching refined realistic editorial beverage imagery.\nStyle/medium: exquisitely realistic product photography / physically based 3D, detailed fine clear glass optics, natural quiet premium visual, never cartoon or icon illustration.\nLighting/mood: broad soft warm-neutral studio light from upper left, subtle neutral right-side rim, fine restrained highlights, believable natural ingredient colors; sharp clean silhouette.\nScene/backdrop: genuinely transparent alpha background, no tabletop, floor, coaster, horizon, environment, background, checkerboard, shadow or surrounding objects.\nPrimary request: ONE small refined transparent clear glass orange juice pitcher filled about three-quarters with delicious natural luminous orange juice. A little rounded glass jug with slim elegant pointed pouring spout on left and a small clear curved loop handle on right. Entire juice jug upright. The juice surface is smooth and level, a little fine natural orange texture, not bubbly or foamy. True fresh citrus orange color, no fluorescent coloring.\nComposition/framing: square canvas, full upright jug centered, approximately 69% canvas height and 65% width, entire spout, handle, rim and base visible with generous transparent margins. Slightly elevated frontal product view, 85mm lens, gentle narrow ellipse at the top, sophisticated near-photographic material detail. Match a small clear milk jug under the same warm-neutral upper-left studio light.\nConstraints: only one orange juice pitcher with juice inside, no orange slices or fruit around it, no pouring, no second object, no cup, no labels, no measurement marks, no text, no logo, no UI, no shadow, no background.",
+      "inspection": {
+        "path": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-75ef4869-9504-4e1c-8e5b-40ea8d656822.png",
+        "width": 1254,
+        "height": 1254,
+        "color": "RGBA8",
+        "alphaBBox": [
+          0,
+          19,
+          1240,
+          1254
+        ],
+        "solidBBox": [
+          234,
+          158,
+          1073,
+          1150
+        ],
+        "transparentFraction": 0.609,
+        "semiTransparentFraction": 0.3907,
+        "alphaSamples": {
+          "0.5,0.5": 253,
+          "0.4,0.5": 253,
+          "0.6,0.5": 253,
+          "0.5,0.3": 253,
+          "0.5,0.7": 253
+        },
+        "visibleBBoxNormalized": [
+          0.1866,
+          0.126,
+          0.85566,
+          0.91707
+        ]
+      },
+      "suggestedAnchors": {
+        "pourSpoutNormalized": [
+          0.188,
+          0.164
+        ]
+      },
+      "savedFiles": {
+        "pngBytes": 1006313,
+        "webpBytes": 119894,
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": true
+      }
+    }
+  ]
+}
