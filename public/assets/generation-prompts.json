@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "generator": {
+    "provider": "OpenAI",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in",
+    "transparentBackground": true,
+    "imagePostprocessing": "None. Selected PNGs copied byte-for-byte; no raster editing."
+  },
+  "styleReference": "/Users/liuwei/Documents/Codex/2026-11-22/wo-z/outputs/ui-design/日咖夜调-UI设计稿-v3-精致高级.png",
+  "inspectionNotes": "Alpha > 128 is used for visible subject bounds because generation contains extremely faint alpha 1 pixels beyond the subject. Liquid coordinate suggestions use normalized full-canvas coordinates and should be adjusted while visually checking the live composition.",
+  "assets": [
+    {
+      "filename": "empty-tumbler.png",
+      "path": "public/assets/empty-tumbler.png",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-376afe71-c844-4486-91d1-a596ba3979c6.png",
+      "originalSource": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-6ce331d6-1029-4aff-b4b6-7ba422a2462a.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: transparent PNG glass overlay for a refined mobile drink mixing app.\nPrimary request: one EMPTY thin clear short straight-sided tumbler, with absolutely no contents. The full glass is isolated on a genuinely transparent background, and its hollow interior/belly must also be genuinely transparent so animated liquid rendered behind the PNG remains fully visible. Render only the glass edges, delicate rim, slim bottom, and restrained front-surface highlights; not an opaque white or grey silhouette.\nStyle/medium: exquisitely realistic product photography / physically based 3D, sophisticated quiet editorial mood, like a fine iced latte product shot.\nComposition/framing: square 1024x1024 canvas, single glass exactly centered, entire glass visible, approximately 78% canvas height and 68% canvas width, generous clear margins all sides. Upright short cylindrical glass, approximately 9cm diameter and 10cm high, near-parallel straight walls, slight natural taper acceptable. Front view from just slightly above, seeing a narrow elegant elliptical opening, 85mm product lens without wide angle distortion. Baseline around 90% of frame height.\nLighting/mood: broad soft warm-neutral key from upper left, subtle neutral right rim, refined fine white specular edge highlights, photorealistic clear colorless glass, small restrained thickness at the bottom. Transparent center should have only minimal translucent highlights.\nScene/backdrop: actual alpha transparency; no environment, ground, background, checkerboard, floor or backdrop painted into the image.\nConstraints: EMPTY glass only; preserve true alpha inside and outside the glass, especially a clear hollow belly. Fine clean cutout edges. No ice, no drink, no water, no milk, no garnish, no coaster, no reflections of a room, no contact shadow, no label, no typography, no logos, no UI, no cartoon, no opaque interior.",
+      "refinementPrompt": "Use case: precise-object-edit\nAsset type: true transparent PNG glass highlights overlay for a drink mixing interface.\nInput image: the existing EMPTY clear glass is the edit target. Keep its exact glass silhouette, full framing, rim position, size, camera angle, thin base and warm-neutral upper-left lighting.\nChange only the glass surface reflections and transparency: make the entire hollow interior, from just under the rim to just above the base, much more smoothly transparent. Eliminate ALL frosted white/grey opaque patches and scratchy/dithered halos. The clear belly should be essentially invisible except for a few very narrow subtle vertical specular lines near the sidewalls. The background must show cleanly through, including behind the top elliptical opening. Keep elegant fine bright rim edges and a believable transparent clear glass base. Crisp smooth edges, realistic thin glass, delicate restrained optics. Do not make a thick white frame. No pixels or stray halos outside the original glass boundary.\nConstraints: EMPTY glass with no contents, no liquid, ice, garnish, shadow, background, surface, text or logo. Actual transparent alpha inside and outside the glass; preserve the original composition.",
+      "inspection": {
+        "width": 1254,
+        "height": 1254,
+        "channels": "RGBA8",
+        "subjectBBoxAlphaOver128": [
+          229,
+          154,
+          1027,
+          1148
+        ],
+        "centerAlpha": 0,
+        "transparentFraction": 0.7468,
+        "liquidBoundsSuggestion": {
+          "left": 0.203,
+          "right": 0.803,
+          "top": 0.19,
+          "bottom": 0.82,
+          "topEllipseRadiusY": 0.031,
+          "bottomEllipseRadiusY": 0.036
+        }
+      }
+    },
+    {
+      "filename": "empty-highball.png",
+      "path": "public/assets/empty-highball.png",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-4e1969b8-6134-451e-b1b9-42381159a316.png",
+      "originalSource": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-4e1969b8-6134-451e-b1b9-42381159a316.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: transparent PNG glass overlay for a refined mobile drink mixing app.\nPrimary request: one EMPTY thin clear tall straight-sided highball glass, with absolutely no contents. The full glass is isolated on a genuinely transparent background, and its hollow interior/belly must also be genuinely transparent so animated liquid rendered behind the PNG remains fully visible. Render only the glass edges, delicate rim, slim bottom, and restrained front-surface highlights; not an opaque white or grey silhouette.\nStyle/medium: exquisitely realistic product photography / physically based 3D, sophisticated quiet editorial mood. Match a premium clear tumbler photographed under soft warm-neutral upper-left light.\nComposition/framing: square 1024x1024 canvas, single glass exactly centered, entire glass visible, approximately 80% canvas height and 42% canvas width, generous clear margins all sides. Upright tall cylindrical highball, approximately 6.5cm diameter and 15cm high, straight nearly parallel walls, no ribbing or patterns. Front view from just slightly above, seeing a narrow elegant elliptical opening, 85mm product lens without wide angle distortion. Baseline around 90% of frame height.\nLighting/mood: broad soft warm-neutral key from upper left, subtle neutral right rim, refined fine white specular edge highlights, photorealistic clear colorless glass, small restrained thickness at the bottom. Transparent center should have only minimal translucent highlights.\nScene/backdrop: actual alpha transparency; no environment, ground, background, checkerboard, floor or backdrop painted into the image.\nConstraints: EMPTY glass only; preserve true alpha inside and outside the glass, especially a clear hollow belly. Fine clean cutout edges. No ice, no drink, no water, no milk, no garnish, no coaster, no reflections of a room, no contact shadow, no label, no typography, no logos, no UI, no cartoon, no opaque interior.",
+      "inspection": {
+        "width": 1254,
+        "height": 1254,
+        "channels": "RGBA8",
+        "subjectBBoxAlphaOver128": [
+          398,
+          95,
+          856,
+          1180
+        ],
+        "centerAlpha": 0,
+        "transparentFraction": 0.7923,
+        "liquidBoundsSuggestion": {
+          "left": 0.331,
+          "right": 0.667,
+          "top": 0.117,
+          "bottom": 0.864,
+          "topEllipseRadiusY": 0.023,
+          "bottomEllipseRadiusY": 0.029
+        }
+      }
+    },
+    {
+      "filename": "latte-hero.png",
+      "path": "public/assets/latte-hero.png",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-7073461d-84ce-415e-8fbd-47e06a4a1d9f.png",
+      "originalSource": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-7073461d-84ce-415e-8fbd-47e06a4a1d9f.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: transparent PNG drink hero for a refined mobile coffee and cocktail app.\nPrimary request: a complete beautiful iced latte in one thin clear short straight-sided tumbler. Creamy natural ivory milk in the lower half with delicate rich caramel-brown espresso clouds and fine curling tendrils mixing into it, stronger deep espresso brown near the top, several large perfectly translucent irregular ice cubes. Delicious believable natural coffee colors, sophisticated and calm.\nStyle/medium: exquisite realistic editorial product photography / physically based 3D, fine glass optics, clean premium craft coffee visual. Not a cartoon or flat illustration.\nComposition/framing: square 1024x1024 canvas, single glass exactly centered, full rim and full base visible, approximately 78% canvas height and 68% width with safe clear margins all sides. Short cylindrical tumbler approximately 9cm diameter and 10cm high, nearly straight walls. Front view from just slightly above, seeing a narrow elegant ellipse of the top and clear facets of ice, 85mm product lens without wide-angle distortion. Baseline around 90% frame height.\nLighting/mood: broad soft warm-neutral studio key from upper left, subtle right rim, refined fine glass highlights, photoreal ice refraction, gentle condensation only in small sparse droplets. Clear sharp clean object boundary.\nScene/backdrop: genuinely transparent alpha background. Only the whole drink and an extremely subtle small contact shadow directly under the bottom edge; no visible surface.\nConstraints: no coaster, no napkin, no table or background, no floating objects, no hands, no pitcher, no pouring stream, no straw, no garnish, no label, no typography, no logo, no UI, no checkerboard baked into image. Preserve actual transparency everywhere outside the drink and soft contact shadow.",
+      "inspection": {
+        "width": 1254,
+        "height": 1254,
+        "channels": "RGBA8",
+        "subjectBBoxAlphaOver128": [
+          201,
+          77,
+          1055,
+          1193
+        ],
+        "centerAlpha": 253,
+        "transparentFraction": 0.4338
+      }
+    },
+    {
+      "filename": "sunset-hero.png",
+      "path": "public/assets/sunset-hero.png",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-2af3054e-1181-45d6-83f6-5ba5847605fc.png",
+      "originalSource": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-2af3054e-1181-45d6-83f6-5ba5847605fc.png",
+      "generationPrompt": "Use case: product-mockup\nAsset type: transparent PNG drink hero for a refined mobile coffee and cocktail app.\nPrimary request: a complete refined Tequila Sunrise in one thin clear tall straight-sided highball glass. A beautiful translucent red-to-orange-to-golden gradient: deep ruby grenadine at the bottom, rich coral red transitioning to luminous natural orange juice in the middle and golden orange near the top. Several large perfectly translucent irregular ice cubes. One single very thin fresh orange half-wheel resting on the upper-left rim, modest delicate garnish. Believable fresh orange/citrus texture, elegant quiet premium aesthetic.\nStyle/medium: exquisite realistic editorial product photography / physically based 3D, fine glass optics, not cartoon or flat illustration. Match a premium clear tumbler photographed under soft warm-neutral upper-left light.\nComposition/framing: square 1024x1024 canvas, single complete glass centered, full orange garnish and base entirely visible, drink and garnish approximately 82% canvas height and 47% width, generous clear margins all sides. Upright highball approximately 6.5cm diameter and 15cm high, straight nearly parallel unpatterned walls, no ribbing. Front view from just slightly above, seeing a narrow elegant ellipse at the top and clear facets of ice, 85mm product lens without distortion. Baseline around 90% frame height.\nLighting/mood: broad soft warm-neutral studio key from upper left, subtle right rim, refined fine glass highlights, photorealistic ice refraction, gentle condensation in small sparse droplets. Clear sharp clean object boundary.\nScene/backdrop: genuinely transparent alpha background. No surface or environment.\nConstraints: no coaster, no napkin, no table or background, no floating objects, no hands, no bottle, no pouring stream, no straw, no second garnish, no labels, no typography, no logos, no UI, no checkerboard baked into image. Preserve actual transparency everywhere outside the drink.",
+      "inspection": {
+        "width": 1254,
+        "height": 1254,
+        "channels": "RGBA8",
+        "subjectBBoxAlphaOver128": [
+          285,
+          31,
+          848,
+          1222
+        ],
+        "centerAlpha": 252,
+        "transparentFraction": 0.6725
+      }
+    }
+  ],
+  "unusedVariants": [
+    {
+      "filename": "empty-highball-refinement-unused.png",
+      "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-50b50b5a-9ce1-427e-a87e-e468320e846d.png",
+      "prompt": "Use case: precise-object-edit\nAsset type: true transparent PNG glass highlights overlay for a drink mixing interface.\nInput image: the existing EMPTY clear glass is the edit target. Keep its exact glass silhouette, full framing, rim position, size, camera angle, thin base and warm-neutral upper-left lighting.\nChange only the glass surface reflections and transparency: make the entire hollow interior, from just under the rim to just above the base, much more smoothly transparent. Eliminate ALL frosted white/grey opaque patches and scratchy/dithered halos. The clear belly should be essentially invisible except for a few very narrow subtle vertical specular lines near the sidewalls. The background must show cleanly through, including behind the top elliptical opening. Keep elegant fine bright rim edges and a believable transparent clear glass base. Crisp smooth edges, realistic thin glass, delicate restrained optics. Do not make a thick white frame. No pixels or stray halos outside the original glass boundary.\nConstraints: EMPTY glass with no contents, no liquid, ice, garnish, shadow, background, surface, text or logo. Actual transparent alpha inside and outside the glass; preserve the original composition.",
+      "reason": "Original highball chosen for lighter, more transparent reflections."
+    }
+  ]
+}

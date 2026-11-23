@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "generator": {
+    "provider": "OpenAI",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in",
+    "transparentBackground": true,
+    "imagePostprocessing": "None. PNG copied byte-for-byte; no raster editing."
+  },
+  "filename": "ice-cube.png",
+  "path": "public/assets/ice-cube.png",
+  "source": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-05441e27-6e0a-4ee9-b7a7-1dcd4005ee7a.png",
+  "styleReference": "empty-tumbler.png (soft warm-neutral upper-left light; matched through prompt)",
+  "generationPrompt": "Use case: product-mockup\nAsset type: isolated transparent PNG ice cube sprite for a premium realistic drink mixing app using Pixi sprites.\nPrimary request: ONE single exquisite realistic clear ice cube only. A gently irregular roughly cubic ice block with clean slightly softened corners, optically clear transparent ice, delicate fine internal ice fissures and a few very tiny trapped air bubbles. The ice should feel crystalline, weighty, and natural, largely clear, not milky or frosted. No chipped debris or extra ice cubes.\nStyle/medium: refined near-photographic physically based 3D / studio product photography, same quiet premium craft beverage style as a thin clear tumbler lit by broad warm-neutral studio light.\nComposition/framing: square canvas, one whole ice cube centered in the image, approximately 70% canvas width and height, with at least 14% clear empty margin on every side. Slightly elevated frontal camera at a 45-degree spatial corner turn so the top and two side faces are visible, attractive natural irregular cubic silhouette, no perspective distortion, suitable for rotating as a standalone 2D sprite. Strong readable silhouette without an outline.\nLighting/mood: broad soft warm-neutral light from upper left, subtle cool-neutral fine edge highlights from right, delicate transparent grey and white refractive facets, fine specular highlights that read elegantly over both a light cream and a deep green background. Restrained contrast, crisp edges and rich fine optical detail.\nScene/backdrop: actual alpha transparency everywhere around the cube and translucent alpha within the clear ice. Absolutely no background, horizon, surface, tabletop or shadow.\nConstraints: one individual cube only, not an ice pile, no glass, cup, liquid, drink, lemon, hand, frost powder, water splash, puddle, floating flecks, cast shadow, contact shadow, checkerboard pattern, text, logo, UI, cartoon or excessively opaque white ice. Preserve smooth clean edges and genuine transparency.",
+  "inspection": {
+    "path": "/Users/liuwei/.codex/generated_images/01a2065d-1565-7d61-87a3-5c6301be6d95/exec-05441e27-6e0a-4ee9-b7a7-1dcd4005ee7a.png",
+    "width": 1254,
+    "height": 1254,
+    "color": "RGBA8",
+    "alphaBBox": [
+      0,
+      37,
+      1253,
+      1254
+    ],
+    "solidBBox": [
+      189,
+      177,
+      1065,
+      1091
+    ],
+    "transparentFraction": 0.5991,
+    "semiTransparentFraction": 0.4009,
+    "alphaSamples": {
+      "0.5,0.5": 252,
+      "0.4,0.5": 252,
+      "0.6,0.5": 252,
+      "0.5,0.3": 253,
+      "0.5,0.7": 253
+    }
+  },
+  "spriteGuidance": {
+    "visibleBBoxAlphaOver128": [
+      189,
+      177,
+      1065,
+      1091
+    ],
+    "visibleBBoxNormalized": [
+      0.15072,
+      0.14115,
+      0.84928,
+      0.87002
+    ],
+    "centerNormalized": [
+      0.5,
+      0.50558
+    ],
+    "notes": "Background is truly transparent. Center of ice is optically clear in appearance but alpha 252-253; lower Sprite alpha if compositing transparency through the cube is desired. Faint alpha 1 fringe pixels exist beyond the visible bounds."
+  }
+}
