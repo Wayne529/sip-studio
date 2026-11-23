@@ -40,7 +40,7 @@ export const DrinkStage=forwardRef<StageHandle,Props>(function DrinkStage({recip
   return <div className={'drink-stage '+(recipe.family==='cocktail'?'dark-stage':'')} aria-label="调制画面，在杯中拖动可以搅拌" onPointerDown={onDown} onPointerMove={onMove} onPointerUp={()=>pointer.current=null} onPointerCancel={()=>pointer.current=null}>
     <div ref={host} className="pixi-host"/>
     {!ready&&!fallback&&<div className="stage-loading">正在准备杯具<span/></div>}
-    {fallback&&<div className="fallback-glass"><div className="fallback-liquid" style={{height:`${Math.min(90,liquidVolume(session)/recipe.capacity*100)}%`,background:fallbackColors.length?`linear-gradient(${session.mixing>.5?'135deg':'to bottom'}, ${fallbackColors.join(', ')})`:'transparent'}}/><img src={recipe.vessel==='tall'?'/assets/empty-highball.webp':'/assets/empty-tumbler.webp'} alt="透明玻璃杯"/></div>}
+    {fallback&&<div className="fallback-glass"><div className="fallback-liquid" style={{height:`${Math.min(90,liquidVolume(session)/recipe.capacity*100)}%`,background:fallbackColors.length?`linear-gradient(${session.mixing>.5?'135deg':'to bottom'}, ${fallbackColors.join(', ')})`:'transparent'}}/><img src={recipe.vessel==='tall'?'./assets/empty-highball.webp':'./assets/empty-tumbler.webp'} alt="透明玻璃杯"/></div>}
     {liquidVolume(session)>0&&<span className="stage-state">{pouring?'正在倒入':stirring?'融合中':session.foam>.1?'细腻奶泡':session.mixing>.65?'风味相融':session.mixing>.1?'层次渐融':session.gentle?'轻倒 · 分层中':'缓缓流动'}</span>}
     {session.activeVessel==='shaker'&&<span className="vessel-note">摇壶内 · 完成后滤入杯中</span>}
   </div>;

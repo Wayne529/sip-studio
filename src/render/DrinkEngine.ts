@@ -40,8 +40,8 @@ export class DrinkEngine {
       this.coffeeCloud.visible=false;this.coffeeCloud.mask=this.mask;this.root.addChild(this.liquid,this.mask,this.coffeeCloud,this.iceLayer,this.surface,this.foam);
       this.makeWalls();
       try{
-        const path=tall?'/assets/empty-highball.webp':'/assets/empty-tumbler.webp';
-        const [tex,iceTexture]=await Promise.all([Assets.load<Texture>(path),Assets.load<Texture>('/assets/ice-cube.webp')]);this.iceTexture=iceTexture;
+        const path=tall?'./assets/empty-highball.webp':'./assets/empty-tumbler.webp';
+        const [tex,iceTexture]=await Promise.all([Assets.load<Texture>(path),Assets.load<Texture>('./assets/ice-cube.webp')]);this.iceTexture=iceTexture;
         if(this.disposed)return;
         this.glass=new Sprite(tex);
         const box=tall?{x:.331,y:.117,w:.336,h:.747}:{x:.203,y:.19,w:.6,h:.63};
@@ -56,7 +56,7 @@ export class DrinkEngine {
         this.root.addChild(body,this.ceramicSurface);
       }
       this.root.addChild(this.garnish,this.stream);
-      const art=await Promise.all(['/assets/pour-pitcher.webp','/assets/pour-bottle.webp','/assets/orange-wheel.webp','/assets/coffee-cloud-overlay.webp'].map(path=>Assets.load<Texture>(path).catch(()=>null)));
+      const art=await Promise.all(['./assets/pour-pitcher.webp','./assets/pour-bottle.webp','./assets/orange-wheel.webp','./assets/coffee-cloud-overlay.webp'].map(path=>Assets.load<Texture>(path).catch(()=>null)));
       if(this.disposed)return;
       if(art[3])this.coffeeCloud.texture=art[3];
       if(art[0])this.toolTextures.pitcher=art[0];if(art[1])this.toolTextures.bottle=art[1];

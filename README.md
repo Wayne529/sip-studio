@@ -59,3 +59,9 @@ Vitest 覆盖全部配方可完成性、容量 / 冰块占位、不同帧率的�
 ## 名称与数据兼容
 
 项目名称为「杯中漫游 · Sip Studio」，包名和代码库建议名为 `sip-studio`。本机数据库与设置保留旧版内部标识，以兼容已有收藏和草稿；历史 AI 素材生成记录保留原始提示词。
+
+## GitHub Pages
+
+访问地址：https://wayne529.github.io/sip-studio/
+
+推送到 `main` 后，GitHub Actions 自动运行测试、构建并部署 `dist`。Vite 使用相对资源路径，兼容项目子目录与根目录部署；页面使用 HashRouter，刷新配方与工作台链接也可访问。
