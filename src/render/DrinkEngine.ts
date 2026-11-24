@@ -3,6 +3,7 @@ import Matter from 'matter-js';
 import { ingredientById, type Recipe } from '../domain/catalog';
 import { liquidVolume, occupiedVolume, type Session } from '../domain/session';
 import { FluidField } from './FluidField';
+import { vesselGeometry, vesselFill, vesselSurfaceY, cupInteriorPath } from './vessel';
 
 const W=440,H=500;
 const hexRgb=(hex:string)=>[parseInt(hex.slice(1,3),16)/255,parseInt(hex.slice(3,5),16)/255,parseInt(hex.slice(5,7),16)/255];
@@ -11,10 +12,10 @@ export class DrinkEngine {
   private app=new Application();private field=new FluidField(96,144);
   private pixels=document.createElement('canvas');private context:CanvasRenderingContext2D;private image:ImageData;
   private texture:Texture;private liquid=new Sprite();private coffeeCloud=new Sprite();private surface=new Graphics();private stream=new Graphics();private mask=new Graphics();
-  private root=new Container();private iceLayer=new Container();private foam=new Graphics();private ceramicSurface=new Graphics();private garnish=new Graphics();private glass?:Sprite;private pouringTool?:Sprite;private orangePhoto?:Sprite;private toolTextures:Record<string,Texture>={};
+  private root=new Container();private contents=new Container();private mouthMask=new Graphics();private iceLayer=new Container();private foam=new Graphics();private ceramicSurface=new Graphics();private garnish=new Graphics();private glass?:Sprite;private pouringTool?:Sprite;private orangePhoto?:Sprite;private toolTextures:Record<string,Texture>={};
   private physics=Matter.Engine.create({gravity:{x:0,y:1,scale:.0007}});private iceBodies:Matter.Body[]=[];private iceDrawings:Container[]=[];private iceTexture?:Texture;
   private state:Session;private previous:Record<string,number>={};private previousTotal=0;
-  private cup={x:105,y:140,w:230,h:270,round:25};private pourState:PourState|null=null;private stirred=0;private stirring=false;
+  private cup=vesselGeometry('short');private pourState:PourState|null=null;private stirred=0;private stirring=false;
   private time=0;private lastTick=0;private accumulator=0;private physicsTime=0;private disposed=false;private ready=false;private initialized=false;private quality='medium';private reduced=false;
   private target=[1,1,1];private targetAlpha=.5;private wave=0;private viewport:HTMLElement;private family:'coffee'|'cocktail';
   constructor(host:HTMLElement,private recipe:Recipe,state:Session,private onReady:()=>void,private onFailure:()=>void){
@@ -30,30 +31,35 @@ export class DrinkEngine {
       if(this.disposed){this.app.destroy(true);return;}
       this.viewport.append(this.app.canvas);this.app.stage.addChild(this.root);
       const tall=['tall','coupe'].includes(this.recipe.vessel);
-      this.cup=tall?{x:137,y:60,w:166,h:380,round:16}:{x:90,y:120,w:260,h:290,round:28};
+      this.cup=vesselGeometry(this.recipe.vessel);
       const c=this.cup;
       const shadow=new Graphics().ellipse(W/2,c.y+c.h+11,c.w*.61,13).fill({color:this.family==='coffee'?0x77644c:0x080f0b,alpha:.12});
       const coaster=new Graphics().ellipse(W/2,c.y+c.h+10,c.w*.64,16).fill({color:this.family==='coffee'?0xdcd4c4:0x485044,alpha:.45}).ellipse(W/2,c.y+c.h+5,c.w*.64,13).fill({color:this.family==='coffee'?0xebe4d6:0x3a443a,alpha:.8});
-      this.root.addChild(shadow,coaster);
-      this.mask.roundRect(c.x,c.y,c.w,c.h,c.round).fill(0xffffff);
-      this.liquid.texture=this.texture;this.liquid.position.set(c.x,c.y);this.liquid.width=c.w;this.liquid.height=c.h;this.liquid.mask=this.mask;
-      this.coffeeCloud.visible=false;this.coffeeCloud.mask=this.mask;this.root.addChild(this.liquid,this.mask,this.coffeeCloud,this.iceLayer,this.surface,this.foam);
+      if(!c.coffeeCup)this.root.addChild(shadow,coaster);
+      if(c.coffeeCup)this.mask.svg(`<svg><path d="${cupInteriorPath(c)}" fill="#fff"/></svg>`);
+      else this.mask.roundRect(c.x,c.y,c.w,c.h,c.round).fill(0xffffff);
+      this.liquid.texture=this.texture;this.liquid.position.set(c.x,c.y);this.liquid.width=c.w;this.liquid.height=c.h;
+      this.coffeeCloud.visible=false;
+      this.contents.addChild(this.liquid,this.coffeeCloud,this.iceLayer,this.surface,this.foam);
+      this.contents.mask=this.mask;this.contents.visible=!c.opaque;
+      this.root.addChild(this.contents,this.mask);
       this.makeWalls();
       try{
-        const path=tall?'./assets/empty-highball.webp':'./assets/empty-tumbler.webp';
+        const path='./assets/'+c.asset;
         const [tex,iceTexture]=await Promise.all([Assets.load<Texture>(path),Assets.load<Texture>('./assets/ice-cube.webp')]);this.iceTexture=iceTexture;
         if(this.disposed)return;
         this.glass=new Sprite(tex);
         const box=tall?{x:.331,y:.117,w:.336,h:.747}:{x:.203,y:.19,w:.6,h:.63};
-        this.glass.width=c.w/box.w;this.glass.height=c.h/box.h;this.glass.x=c.x-box.x*this.glass.width;this.glass.y=c.y-box.y*this.glass.height;this.glass.alpha=this.family==='coffee'?.64:.69;
+        if(c.coffeeCup){this.glass.width=W;this.glass.height=H;}
+        else{this.glass.width=c.w/box.w;this.glass.height=c.h/box.h;this.glass.x=c.x-box.x*this.glass.width;this.glass.y=c.y-box.y*this.glass.height;this.glass.alpha=this.family==='coffee'?.64:.69;}
         this.root.addChild(this.glass);
       }catch{
         this.root.addChild(new Graphics().roundRect(c.x-4,c.y-5,c.w+8,c.h+12,c.round).stroke({width:2,color:0xe9eee9,alpha:.65}));
       }
-      if(['ceramic','espresso'].includes(this.recipe.vessel)){
-        if(this.glass)this.glass.visible=false;
-        const body=new Graphics().roundRect(c.x-5,c.y+c.h*.34,c.w+10,c.h*.68,30).fill({color:0xe8e0d2,alpha:.99}).ellipse(c.x+c.w+10,c.y+c.h*.6,32,45).stroke({width:15,color:0xe8e0d2});
-        this.root.addChild(body,this.ceramicSurface);
+      if(c.opaque){
+        this.mouthMask.ellipse(c.x+c.w/2,c.y,c.w/2-9,c.rimDepth-6).fill(0xffffff);
+        this.ceramicSurface.mask=this.mouthMask;
+        this.root.addChild(this.ceramicSurface,this.mouthMask);
       }
       this.root.addChild(this.garnish,this.stream);
       const art=await Promise.all(['./assets/pour-pitcher.webp','./assets/pour-bottle.webp','./assets/orange-wheel.webp','./assets/coffee-cloud-overlay.webp'].map(path=>Assets.load<Texture>(path).catch(()=>null)));
@@ -67,16 +73,14 @@ export class DrinkEngine {
       this.app.ticker.add(this.tick);this.onReady();
     }catch(e){console.warn('Drink stage unavailable, using visual fallback.',e);if(!this.disposed)this.onFailure();}
   }
-  private makeWalls(){const c=this.cup;Matter.Composite.add(this.physics.world,[Matter.Bodies.rectangle(c.x-10,c.y+c.h/2,20,c.h+100,{isStatic:true}),Matter.Bodies.rectangle(c.x+c.w+10,c.y+c.h/2,20,c.h+100,{isStatic:true}),Matter.Bodies.rectangle(W/2,c.y+c.h+14,c.w,25,{isStatic:true})]);}
+  private makeWalls(){const c=this.cup;Matter.Composite.add(this.physics.world,[Matter.Bodies.rectangle(c.x-10,c.y+c.h/2,20,c.h+100,{isStatic:true}),Matter.Bodies.rectangle(c.x+c.w+10,c.y+c.h/2,20,c.h+100,{isStatic:true}),Matter.Bodies.rectangle(c.x+c.w/2,c.y+c.h+14,c.w,25,{isStatic:true})]);}
   sync(state:Session,force=false){
     const old=this.state;this.state=state;if(!this.ready)return;
     const total=liquidVolume(state),c=this.cup;
     const reset=force||state.seed!==old.seed||total<this.previousTotal-.1||state.additions.length<old.additions.length||state.mixing<old.mixing-.1;
     this.updateTarget();
     const apparent=total>0?occupiedVolume(state):0;
-    const intended=Object.entries(this.recipe.composition).reduce((sum,[id,n])=>sum+(ingredientById[id].unit==='ml'?n:id==='ice'?n*16:0),0);
-    const visualCapacity=Math.min(this.recipe.capacity,Math.max(60,intended/.86));
-    const top=this.field.height-Math.round(Math.min(.89,apparent/visualCapacity*.96)*this.field.height)+1;
+    const top=this.field.height-Math.round(vesselFill(apparent,this.recipe.capacity)*this.field.height)+1;
     this.field.top=Math.max(2,Math.min(this.field.height,top));
     if(reset){
       this.field.reset();if(total>0)this.field.fill(this.target,this.targetAlpha);
@@ -147,7 +151,7 @@ export class DrinkEngine {
     const now=performance.now(),elapsed=Math.min((now-this.lastTick)/1000,.05);this.lastTick=now;this.time+=elapsed;this.accumulator+=elapsed;
     const interval=this.quality==='high'?1/45:this.quality==='low'?1/20:1/30;if(this.accumulator<interval)return;
     const dt=Math.min(.05,this.accumulator);this.accumulator=0;
-    const c=this.cup,surface=['ceramic','espresso'].includes(this.recipe.vessel)?c.y+c.h*.34:c.y+c.h*(this.field.top/this.field.height);
+    const c=this.cup,surface=vesselSurfaceY(c,occupiedVolume(this.state),this.recipe.capacity);
     if(this.stirring&&!this.reduced){this.field.swirl(this.field.width/2,(this.field.top+this.field.height)/2,dt*8);this.stirred+=dt;this.wave=3;}
     this.field.solid.fill(0);
     for(let n=0;n<this.iceBodies.length;n++){
@@ -179,12 +183,12 @@ export class DrinkEngine {
     this.context.putImageData(this.image,0,0);this.texture.source.update();
   }
   private drawSurface(y:number){
-    const g=this.surface.clear(),c=this.cup;this.foam.clear();if(liquidVolume(this.state)===0)return;
+    const g=this.surface.clear(),c=this.cup;this.foam.clear();this.ceramicSurface.clear();if(liquidVolume(this.state)===0)return;
     const width=c.w*.98,center=c.x+c.w/2;
-    if(['ceramic','espresso'].includes(this.recipe.vessel)){
-      const top=c.y+c.h*.34;
+    if(c.opaque){
+      const top=c.y,fill=vesselFill(occupiedVolume(this.state),this.recipe.capacity)/.9;
       const r=Math.round(this.target[0]*255),green=Math.round(this.target[1]*255),b=Math.round(this.target[2]*255);
-      this.ceramicSurface.clear().ellipse(center,top+4,c.w/2,22).fill(0xe4d7c1).ellipse(center,top+4,c.w/2-7,17).fill({color:(r<<16)+(green<<8)+b,alpha:1});
+      this.ceramicSurface.ellipse(center,top+3+(1-fill)*5,(c.w/2-11)*(.86+.14*fill),c.rimDepth-6).fill({color:(r<<16)+(green<<8)+b,alpha:1});
       if(this.state.foam>.1){this.ceramicSurface.ellipse(center,top+3,c.w*.43,13).fill({color:0xf5ecd9,alpha:Math.min(.97,this.state.foam+.3)}).ellipse(center,top+3,22,8).stroke({width:3,color:0xe3c8a0,alpha:.8});}
       return;
     }
@@ -193,7 +197,7 @@ export class DrinkEngine {
     if(this.state.foam>0)this.foam.ellipse(center,y-4,width/2,9+this.state.foam*13).fill({color:0xf3e9d7,alpha:.97});
   }
   private drawStream(surface:number){
-    const g=this.stream.clear();if(this.pouringTool)this.pouringTool.visible=false;if(!this.pourState)return;
+    const g=this.stream.clear();if(this.pouringTool)this.pouringTool.visible=false;if(!this.pourState||occupiedVolume(this.state)>=this.recipe.capacity)return;
     const i=ingredientById[this.pourState.id],c=this.cup;if(i.unit!=='ml')return;
     const x=c.x+c.w*(this.pourState.gentle?.87:.57),sourceX=x+66,sourceY=Math.max(35,c.y-30);
     g.moveTo(sourceX,sourceY).bezierCurveTo(x+10,sourceY+15,x+Math.sin(this.time*14)*2,surface-35,x,surface+7).stroke({width:this.pourState.gentle?3:5,color:i.color,alpha:.92});

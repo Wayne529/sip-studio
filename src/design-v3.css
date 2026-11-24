@@ -77,3 +77,9 @@
 .theme-dark .auto-actions .primary{background:#70785c;color:#fff}
 .theme-dark .auto-actions .secondary{color:#e1e3d8;border-color:#8a948277}
 @media(max-width:600px){.auto-panel{padding:8px 0 10px}.auto-panel h2{font-size:22px;margin:12px 0}.auto-steps{margin:15px 0 20px}.auto-steps li{min-height:39px}.auto-actions>.button{height:46px}.auto-launch{margin:10px 0 0}}
+
+.coffee-cup-art{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 10px 9px #352e1b09)}
+.fallback-coffee-cup{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.fallback-coffee-cup .coffee-cup-art{width:100%;height:100%;overflow:hidden}
+.recipe-art.art-coffee-cup{overflow:visible}.art-small.art-coffee-cup .coffee-cup-art{transform:scale(1.35)}
+@media(max-width:600px){.featured-stage>.art-coffee-cup{width:84%;right:-42px;top:-10px;height:124%}.detail-hero .coffee-cup-art{width:340px;height:360px}}

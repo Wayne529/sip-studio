@@ -3,6 +3,9 @@ import type { Recipe } from '../domain/catalog';
 import { ingredientById } from '../domain/catalog';
 import { liquidVolume, type Session } from '../domain/session';
 import { DrinkEngine } from '../render/DrinkEngine';
+import { captureFallback } from '../render/captureFallback';
+import { CoffeeCupArt } from './CoffeeCupArt';
+import { vesselGeometry } from '../render/vessel';
 
 export interface StageHandle { capture:()=>Promise<Blob>; }
 interface Props { recipe:Recipe;session:Session;pouring:string|null;stirring:boolean;quality:string;reduced:boolean;interactive?:boolean;onReady?:()=>void;onStir?:(seconds:number)=>void;onGestureStart?:()=>void; }
@@ -24,11 +27,7 @@ export const DrinkStage=forwardRef<StageHandle,Props>(function DrinkStage({recip
   useEffect(()=>{engine.current?.setQuality(quality,reduced);},[quality,reduced,ready]);
   useImperativeHandle(ref,()=>({capture:async()=>{
     if(ready&&!fallback)return engine.current!.capture();
-    const canvas=document.createElement('canvas');canvas.width=880;canvas.height=1000;const ctx=canvas.getContext('2d')!;
-    const gradient=ctx.createLinearGradient(0,300,0,850);const entries=Object.entries(session.composition).filter(([id])=>ingredientById[id].unit==='ml');
-    entries.forEach(([id],n)=>gradient.addColorStop(n/Math.max(1,entries.length-1),ingredientById[id].color));
-    ctx.fillStyle=entries.length?gradient:'#e6e2d7';ctx.beginPath();ctx.roundRect(260,240,360,580,25);ctx.fill();ctx.strokeStyle='#d6dfda';ctx.lineWidth=4;ctx.stroke();
-    return new Promise<Blob>((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error('导出失败'))));
+    return captureFallback(recipe,session);
   }}),[ready,fallback,session]);
   const onDown=(e:React.PointerEvent<HTMLDivElement>)=>{if(!interactive||liquidVolume(session)===0)return;e.currentTarget.setPointerCapture(e.pointerId);pointer.current={x:e.clientX,y:e.clientY,t:performance.now()};onGestureStart?.();};
   const onMove=(e:React.PointerEvent<HTMLDivElement>)=>{
@@ -41,7 +40,7 @@ export const DrinkStage=forwardRef<StageHandle,Props>(function DrinkStage({recip
   return <div className={'drink-stage '+(recipe.family==='cocktail'?'dark-stage':'')} aria-label="调制画面，在杯中拖动可以搅拌" onPointerDown={onDown} onPointerMove={onMove} onPointerUp={()=>pointer.current=null} onPointerCancel={()=>pointer.current=null}>
     <div ref={host} className="pixi-host"/>
     {!ready&&!fallback&&<div className="stage-loading">正在准备杯具<span/></div>}
-    {fallback&&<div className="fallback-glass"><div className="fallback-liquid" style={{height:`${Math.min(90,liquidVolume(session)/recipe.capacity*100)}%`,background:fallbackColors.length?`linear-gradient(${session.mixing>.5?'135deg':'to bottom'}, ${fallbackColors.join(', ')})`:'transparent'}}/><img src={recipe.vessel==='tall'?'./assets/empty-highball.webp':'./assets/empty-tumbler.webp'} alt="透明玻璃杯"/></div>}
+    {fallback&&(vesselGeometry(recipe.vessel).coffeeCup?<div className="fallback-coffee-cup"><CoffeeCupArt recipe={recipe} session={session}/></div>:<div className="fallback-glass"><div className="fallback-liquid" style={{height:`${Math.min(90,liquidVolume(session)/recipe.capacity*100)}%`,background:fallbackColors.length?`linear-gradient(${session.mixing>.5?'135deg':'to bottom'}, ${fallbackColors.join(', ')})`:'transparent'}}/><img src={recipe.vessel==='tall'?'./assets/empty-highball.webp':'./assets/empty-tumbler.webp'} alt="透明玻璃杯"/></div>)}
     {liquidVolume(session)>0&&<span className="stage-state">{pouring?'正在倒入':stirring?'融合中':session.foam>.1?'细腻奶泡':session.mixing>.65?'风味相融':session.mixing>.1?'层次渐融':session.gentle?'轻倒 · 分层中':'缓缓流动'}</span>}
     {session.activeVessel==='shaker'&&<span className="vessel-note">摇壶内 · 完成后滤入杯中</span>}
   </div>;

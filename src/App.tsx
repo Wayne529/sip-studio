@@ -9,6 +9,8 @@ import { db, type SavedDrink } from './storage/database';
 import { IngredientArt } from './components/IngredientArt';
 import { HoldButton } from './components/HoldButton';
 import { AutoMixPanel } from './components/AutoMixPanel';
+import { CoffeeCupArt } from './components/CoffeeCupArt';
+import { vesselGeometry } from './render/vessel';
 import { useAutoMix } from './hooks/useAutoMix';
 import { autoStepDuration } from './domain/autoMix';
 import type { StageHandle } from './components/DrinkStage';
@@ -24,6 +26,7 @@ function SoundButton(){const sound=useAtelier(s=>s.sound);return <button classNa
 function Brand(){return <span className="wordmark">杯中漫游<span className="wordmark-en">SIP STUDIO</span></span>;}
 function BottomNav(){const location=useLocation(),navigate=useNavigate();const collection=['/collection','/saved','/result'].includes(location.pathname);return <nav className="bottom-nav" aria-label="主导航"><button className={!collection?'is-current':''} onClick={()=>navigate('/')}><BookOpen/><span>饮品书</span></button><button onClick={()=>navigate('/workbench')}><Wine/><span>吧台</span></button><button className={collection?'is-current':''} onClick={()=>navigate('/collection')}><Bookmark/><span>我的配方</span></button></nav>;}
 function RecipeArt({recipe,small=false}:{recipe:Recipe;small?:boolean}){
+  if(vesselGeometry(recipe.vessel).coffeeCup)return <div className={'recipe-art art-coffee-cup '+(small?'art-small':'')}><CoffeeCupArt recipe={recipe}/></div>;
   const thumbnail=recipe.id==='iced-americano'?'thumb-americano':['flat-white','cappuccino','latte'].includes(recipe.id)?'thumb-flatwhite':null;
   const isPhoto=recipe.hero==='latte'||recipe.hero==='sunset'||!!thumbnail;
   return <div className={'recipe-art '+(small?'art-small ':'')+'art-'+recipe.hero}>{isPhoto?<img src={thumbnail?`./assets/${thumbnail}.webp`:recipe.hero==='latte'?'./assets/latte-hero.webp':'./assets/sunset-hero.webp'} alt={recipe.name} loading={small?'lazy':'eager'}/>:<div className={'mini-drink mini-'+recipe.vessel} style={{'--drink-color':recipe.color} as React.CSSProperties}><span className="mini-liquid"/><span className="mini-foam"/><i/><b/></div>}</div>;

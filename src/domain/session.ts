@@ -1,4 +1,4 @@
-import { ingredientById, type Recipe, type Technique } from './catalog';
+import { ingredientById, recipeById, type Recipe, type Technique } from './catalog';
 
 export type Mode='guided'|'challenge'|'free';
 export interface Addition { id:string; amount:number; gentle:boolean; at:number; }
@@ -36,7 +36,9 @@ export function applyTechnique(s:Session,kind:Technique,seconds:number=1):Sessio
   if(kind==='foam') {
     const hasMilk=['milk','oat','coconut'].some(id=>(s.composition[id]??0)>0);
     if(!hasMilk)return s;
-    return {...s,techniques,foam:Math.min(1,s.foam+duration*0.18)};
+    const capacity=recipeById[s.recipeId].capacity;
+    const roomForFoam=Math.max(0,(capacity-liquidVolume(s)-(s.composition.ice??0)*16)/15);
+    return {...s,techniques,foam:Math.min(1,roomForFoam,s.foam+duration*0.18)};
   }
   if(kind==='strain') {
     if(s.activeVessel!=='shaker'||(s.techniques.shake??0)<1)return s;

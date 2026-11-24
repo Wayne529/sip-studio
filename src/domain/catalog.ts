@@ -1,6 +1,6 @@
 export type Family = 'coffee' | 'cocktail';
 export type Technique = 'stir' | 'shake' | 'foam' | 'strain' | 'garnish';
-export type Vessel = 'short' | 'tall' | 'ceramic' | 'coupe' | 'espresso' | 'rocks';
+export type Vessel = 'short' | 'tall' | 'mug' | 'ceramic' | 'coupe' | 'espresso' | 'rocks';
 export type IngredientCategory = 'coffee' | 'milk' | 'spirit' | 'juice' | 'syrup' | 'extra';
 
 export interface Ingredient {
@@ -68,7 +68,7 @@ function recipe(id:string,name:string,en:string,family:Family,vessel:Vessel,comp
 }
 
 export const recipes:Recipe[] = [
-  recipe('iced-latte','冰拿铁','ICED LATTE','coffee','short',{ice:2,milk:150,espresso:30},[],'浓缩 · 牛奶 · 冰','看浓缩落入牛奶，慢慢展开一朵咖啡云。','latte'),
+  recipe('iced-latte','冰拿铁','ICED LATTE','coffee','mug',{ice:2,milk:150,espresso:30},[],'浓缩 · 牛奶 · 冰','看浓缩落入牛奶，慢慢展开一朵咖啡云。','latte'),
   recipe('iced-americano','冰美式','ICED AMERICANO','coffee','short',{ice:2,water:120,espresso:60},[],'清爽 · 浓缩与水','轻盈透彻，让咖啡的香气保持清晰。','dark'),
   recipe('flat-white','澳白','FLAT WHITE','coffee','ceramic',{espresso:40,milk:100},['foam'],'细腻 · 微奶泡','浓缩的醇厚，与细腻奶泡恰好相遇。','cream'),
   recipe('cappuccino','卡布奇诺','CAPPUCCINO','coffee','ceramic',{espresso:30,milk:90},['foam'],'绵密 · 丰厚奶泡','一层绵密奶泡，把咖啡香气轻轻留住。','cream'),
@@ -86,7 +86,7 @@ export const recipes:Recipe[] = [
   recipe('negroni','尼格罗尼','NEGRONI','cocktail','rocks',{ice:2,gin:30,bitter:30,vermouth:30},['stir'],'微苦 · 草本与柑橘','三种风味均衡相拥，留下悠长的微苦。','sunset'),
   recipe('sidecar','边车','SIDECAR','cocktail','coupe',{brandy:50,triple:20,lemon:20},['shake','strain'],'馥郁 · 干邑与柠檬','摇和、滤出，感受干邑与柑橘的层次。','amber'),
   recipe('espresso-martini','浓缩马天尼','ESPRESSO MARTINI','cocktail','coupe',{vodka:50,coffeeLiqueur:30,syrup:10,espresso:30},['shake','strain'],'浓郁 · 咖啡与酒','让咖啡馆与小酒馆，在同一杯里相遇。','dark'),
-  recipe('coconut-cloud','椰云拿铁','COCONUT CLOUD','coffee','short',{ice:2,coconut:150,espresso:30},[],'椰香 · 咖啡云','椰乳铺底，让焦糖色流痕慢慢舒展。','latte',true),
+  recipe('coconut-cloud','椰云拿铁','COCONUT CLOUD','coffee','mug',{ice:2,coconut:150,espresso:30},[],'椰香 · 咖啡云','椰乳铺底，让焦糖色流痕慢慢舒展。','latte',true),
   recipe('orange-coffee','橙光美式','ORANGE COFFEE','coffee','tall',{ice:2,orange:90,espresso:30,soda:60},[],'柑橘 · 轻盈气泡','橙香与咖啡的自由相遇，最后补上一点气泡。','amber',true),
   recipe('sunset-coast','落日海岸','SUNSET COAST','cocktail','tall',{ice:2,tequila:30,orange:60,pineapple:30,grenadine:15},[],'果香 · 酸甜 · 清爽','暖色渐变从杯底展开，像把海边的傍晚留了下来。','sunset',true),
   recipe('island-blue','海岛蓝调','ISLAND BLUE','cocktail','tall',{ice:2,vodka:30,blue:15,lemon:10,soda:90},['stir'],'柑橘 · 清冽蓝调','蓝色流痕与冰块相遇，轻搅成清澈的海岛蓝。','blue',true),
