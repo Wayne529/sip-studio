@@ -60,3 +60,20 @@
 .dark-stage .pixi-host canvas{filter:saturate(1.22) contrast(1.025)}
 @media(max-width:600px){.theme-dark .ingredient-categories{gap:18px}.theme-dark .ingredient-categories button{padding-left:4px;padding-right:4px}.result-stage .finished-image{transform:scale(1.11);transform-origin:center 60%}.result-stage{overflow:hidden}}
 @media(max-width:600px){.featured-shadow{position:absolute;right:10px;bottom:2px;width:51%;height:20px;border-radius:50%;background:linear-gradient(175deg,#e9e1d3,#d8cdbb);box-shadow:0 5px 10px #483d2810;z-index:0}}
+
+/* Automatic mixing is an explicit alternative to hands-on mixing. */
+.auto-launch{display:flex;justify-content:center;gap:9px;width:100%;margin:10px 0 0;color:var(--olive);font-size:13px;order:4}
+.auto-launch small{font-size:11px;color:var(--muted);margin-left:5px}
+.auto-panel{padding:22px 0 12px}
+.auto-panel h2{font-family:var(--serif);font-size:25px;font-weight:400;margin:16px 0}
+.auto-status{color:var(--olive);font-size:14px;min-height:24px;line-height:1.7}
+.auto-steps{list-style:none;margin:22px 0;padding:0;border-top:1px solid var(--line)}
+.auto-steps li{display:flex;align-items:center;gap:12px;min-height:43px;border-bottom:1px solid var(--line);color:var(--muted);font-size:13px}
+.auto-steps li.current{color:var(--ink)}.auto-steps li.done .auto-step-number{color:var(--olive)}
+.auto-step-number{width:21px;display:flex;justify-content:center;flex-shrink:0;font:12px Georgia,serif;color:var(--muted)}
+.auto-steps small{margin-left:auto;white-space:nowrap;font-size:12px}
+.auto-actions{display:flex;gap:12px}.auto-actions>.button{flex:1;padding:0 10px;font-size:14px}
+.theme-dark .auto-panel{--ink:#edece2;--muted:#a8b0a0;--line:#77836c44;--olive:#b3bca2}
+.theme-dark .auto-actions .primary{background:#70785c;color:#fff}
+.theme-dark .auto-actions .secondary{color:#e1e3d8;border-color:#8a948277}
+@media(max-width:600px){.auto-panel{padding:8px 0 10px}.auto-panel h2{font-size:22px;margin:12px 0}.auto-steps{margin:15px 0 20px}.auto-steps li{min-height:39px}.auto-actions>.button{height:46px}.auto-launch{margin:10px 0 0}}

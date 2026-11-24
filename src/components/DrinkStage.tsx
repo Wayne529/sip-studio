@@ -5,8 +5,8 @@ import { liquidVolume, type Session } from '../domain/session';
 import { DrinkEngine } from '../render/DrinkEngine';
 
 export interface StageHandle { capture:()=>Promise<Blob>; }
-interface Props { recipe:Recipe;session:Session;pouring:string|null;stirring:boolean;quality:string;reduced:boolean;onStir?:(seconds:number)=>void;onGestureStart?:()=>void; }
-export const DrinkStage=forwardRef<StageHandle,Props>(function DrinkStage({recipe,session,pouring,stirring,quality,reduced,onStir,onGestureStart},ref){
+interface Props { recipe:Recipe;session:Session;pouring:string|null;stirring:boolean;quality:string;reduced:boolean;interactive?:boolean;onReady?:()=>void;onStir?:(seconds:number)=>void;onGestureStart?:()=>void; }
+export const DrinkStage=forwardRef<StageHandle,Props>(function DrinkStage({recipe,session,pouring,stirring,quality,reduced,interactive=true,onReady,onStir,onGestureStart},ref){
   const host=useRef<HTMLDivElement>(null),engine=useRef<DrinkEngine|null>(null);
   const [ready,setReady]=useState(false),[fallback,setFallback]=useState(false);
   const pointer=useRef<{x:number;y:number;t:number}|null>(null);
@@ -17,6 +17,7 @@ export const DrinkStage=forwardRef<StageHandle,Props>(function DrinkStage({recip
     // The scene lifetime is keyed to its vessel/recipe. Updates use sync below.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[recipe.id]);
+  useEffect(()=>{if(ready||fallback)onReady?.();},[ready,fallback,onReady]);
   useEffect(()=>{engine.current?.sync(session);},[session,ready]);
   useEffect(()=>{engine.current?.setPour(pouring?{id:pouring,gentle:session.gentle}:null);},[pouring,session.gentle,ready]);
   useEffect(()=>{engine.current?.setStir(stirring);},[stirring,ready]);
@@ -29,7 +30,7 @@ export const DrinkStage=forwardRef<StageHandle,Props>(function DrinkStage({recip
     ctx.fillStyle=entries.length?gradient:'#e6e2d7';ctx.beginPath();ctx.roundRect(260,240,360,580,25);ctx.fill();ctx.strokeStyle='#d6dfda';ctx.lineWidth=4;ctx.stroke();
     return new Promise<Blob>((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error('导出失败'))));
   }}),[ready,fallback,session]);
-  const onDown=(e:React.PointerEvent<HTMLDivElement>)=>{if(liquidVolume(session)===0)return;e.currentTarget.setPointerCapture(e.pointerId);pointer.current={x:e.clientX,y:e.clientY,t:performance.now()};onGestureStart?.();};
+  const onDown=(e:React.PointerEvent<HTMLDivElement>)=>{if(!interactive||liquidVolume(session)===0)return;e.currentTarget.setPointerCapture(e.pointerId);pointer.current={x:e.clientX,y:e.clientY,t:performance.now()};onGestureStart?.();};
   const onMove=(e:React.PointerEvent<HTMLDivElement>)=>{
     const p=pointer.current;if(!p)return;const box=e.currentTarget.getBoundingClientRect(),now=performance.now();const dx=(e.clientX-p.x)/box.width,dy=(e.clientY-p.y)/box.height;
     if(Math.hypot(dx,dy)>.003){engine.current?.impulse((e.clientX-box.x)/box.width,(e.clientY-box.y)/box.height,dx,dy);onStir?.(Math.min(.1,(now-p.t)/1000));}

@@ -5,10 +5,10 @@ import { db } from './storage/database';
 
 interface AtelierStore {
   family:Family; selectedRecipe:string; session:Session; history:Session[];
-  sound:boolean; quality:'high'|'medium'|'low'; reducedMotion:boolean; selectedIngredient:string;
+  autoRequested:boolean; sound:boolean; quality:'high'|'medium'|'low'; reducedMotion:boolean; selectedIngredient:string;
   setFamily:(family:Family)=>void;
   setRecipe:(id:string)=>void;
-  start:(id:string,mode:Mode)=>void;
+  start:(id:string,mode:Mode,automatic?:boolean)=>void;
   checkpoint:()=>void;
   add:(id:string,amount:number)=>void;
   technique:(kind:Technique,seconds?:number)=>void;
@@ -22,10 +22,10 @@ interface AtelierStore {
 }
 export const useAtelier=create<AtelierStore>((set,get)=>({
   family:'coffee',selectedRecipe:'iced-latte',session:createSession(recipeById['iced-latte']),history:[],
-  sound:localStorage.getItem('atelier-sound')==='true',quality:'medium',reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,selectedIngredient:'ice',
+  autoRequested:false,sound:localStorage.getItem('atelier-sound')==='true',quality:'medium',reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,selectedIngredient:'ice',
   setFamily:family=>set({family,selectedRecipe:family==='coffee'?'iced-latte':'tequila-sunrise'}),
   setRecipe:id=>set({selectedRecipe:id,family:recipeById[id].family}),
-  start:(id,mode)=>set({session:createSession(recipeById[id],mode),selectedRecipe:id,selectedIngredient:recipeById[id].steps[0]?.ingredientId??'espresso',history:[]}),
+  start:(id,mode,automatic=false)=>set({autoRequested:automatic,session:createSession(recipeById[id],mode),selectedRecipe:id,selectedIngredient:recipeById[id].steps[0]?.ingredientId??'espresso',history:[]}),
   checkpoint:()=>set(s=>({history:[...s.history.slice(-11),structuredClone(s.session)]})),
   add:(id,amount)=>set(s=>({session:addIngredient(s.session,id,amount,recipeById[s.session.recipeId].capacity)})),
   technique:(kind,seconds)=>set(s=>({session:applyTechnique(s.session,kind,seconds)})),
@@ -34,7 +34,7 @@ export const useAtelier=create<AtelierStore>((set,get)=>({
   setIngredient:selectedIngredient=>set({selectedIngredient}),
   toggleSound:()=>set(s=>{localStorage.setItem('atelier-sound',String(!s.sound));return{sound:!s.sound};}),
   setQuality:quality=>set({quality}),setReducedMotion:reducedMotion=>set({reducedMotion}),
-  restore:session=>set({session,selectedRecipe:session.recipeId,family:recipeById[session.recipeId].family,selectedIngredient:session.additions.at(-1)?.id??'ice',history:[]}),
+  restore:session=>set({autoRequested:false,session,selectedRecipe:session.recipeId,family:recipeById[session.recipeId].family,selectedIngredient:session.additions.at(-1)?.id??'ice',history:[]}),
 }));
 
 let persistTimer:ReturnType<typeof setTimeout>;
