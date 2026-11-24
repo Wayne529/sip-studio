@@ -15,6 +15,24 @@ describe('drink rules',()=>{
   it('does not exceed available capacity, including ice displacement',()=>{
     let s=createSession(recipeById['iced-latte']);s=addIngredient(s,'ice',2,300);s=addIngredient(s,'milk',400,300);expect(liquidVolume(s)).toBe(268);expect(occupiedVolume(s)).toBe(300);expect(addIngredient(s,'espresso',30,300)).toBe(s);
   });
+  it('lets ice fill available capacity beyond six cubes in every mode',()=>{
+    for(const mode of ['guided','challenge','free'] as const){
+      let s=createSession(recipeById['iced-latte'],mode);
+      for(let n=0;n<30;n++)s=addIngredient(s,'ice',1,320);
+      expect(s.composition.ice).toBe(20);
+      expect(occupiedVolume(s)).toBe(320);
+      expect(addIngredient(s,'ice',1,320)).toBe(s);
+    }
+  });
+  it('accepts extra ice alongside liquid only when a whole cube fits',()=>{
+    let s=addIngredient(createSession(recipeById['iced-latte']),'milk',101,250);
+    s=addIngredient(s,'ice',30,250);
+    expect(s.composition.ice).toBe(9);
+    expect(occupiedVolume(s)).toBe(245);
+    expect(addIngredient(s,'ice',1,250)).toBe(s);
+    s=addIngredient(s,'milk',30,250);
+    expect(occupiedVolume(s)).toBe(250);
+  });
   it('rejects negative, nonfinite and unknown additions without mutation',()=>{
     const s=createSession(recipeById['iced-latte']);for(const n of [-1,NaN,Infinity])expect(addIngredient(s,'milk',n,300)).toBe(s);expect(addIngredient(s,'unknown',30,300)).toBe(s);expect(pourAmount(35,NaN,200)).toBe(0);
   });

@@ -120,7 +120,7 @@ export class DrinkEngine {
       }
     }
     this.previous={...state.composition};this.previousTotal=total;
-    const ice=Math.min(6,Math.round((state.composition.ice??0)*1.5));
+    const ice=Math.max(0,Math.floor(state.composition.ice??0));
     while(this.iceBodies.length>ice){Matter.Composite.remove(this.physics.world,this.iceBodies.pop()!);this.iceDrawings.pop()!.destroy();}
     while(this.iceBodies.length<ice){
       const n=this.iceBodies.length,size=48+((state.seed+n*7)%12);

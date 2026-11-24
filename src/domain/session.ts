@@ -22,7 +22,7 @@ export function addIngredient(s:Session,id:string,requested:number,capacity:numb
   const ingredient=ingredientById[id];
   if(!ingredient||!Number.isFinite(requested)||requested<=0)return s;
   if(s.activeVessel==='shaker'&&['soda','tonic'].includes(id))return s;
-  const amount=ingredient.unit==='ml'?Math.min(requested,Math.max(0,capacity-occupiedVolume(s))):Math.min(requested,id==='ice'?Math.max(0,Math.min(6-(s.composition.ice??0),Math.floor((capacity-occupiedVolume(s))/16))):12-(s.composition[id]??0));
+  const amount=ingredient.unit==='ml'?Math.min(requested,Math.max(0,capacity-occupiedVolume(s))):Math.min(requested,id==='ice'?Math.max(0,Math.floor((capacity-occupiedVolume(s))/16)):12-(s.composition[id]??0));
   if(amount<=0)return s;
   const next={...s,composition:{...s.composition,[id]:(s.composition[id]??0)+amount},additions:[...s.additions,{id,amount,gentle:s.gentle,at:Date.now()}]};
   if(next.additions.length>180) next.additions=next.additions.slice(-180);
